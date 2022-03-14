@@ -2,12 +2,17 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.exe
+*.bat
+*.ps1
+*.cfg
 
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
+virt/
 build/
 develop-eggs/
 dist/
