@@ -12,7 +12,8 @@
 ![image](https://user-images.githubusercontent.com/60520606/159128271-92556441-6668-4fa6-a548-7519c0c5ad94.png)
 
 
-This repository will be updated on a regular pace till the end of the semester(June 2022), when we provide a beautiful, running and error free website as our final delivary. 
+* This repository will be updated on a regular pace till the end of the semester(June 2022).
+* At the end of the term, a beautiful, running and error free website will be delivered. 
 
 
 ***
