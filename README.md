@@ -21,12 +21,16 @@ This repository will be updated on a regular pace till the end of the semester(J
 
 ### Project Name : wE-Learning
 
+***
 
 ![image](https://user-images.githubusercontent.com/60520606/159128239-6a87b595-5976-4244-82cc-c11260967b71.png)
 
+
 ### Project Owner: 
+
 [Betul Güreş](https://github.com/betty-gures/SWE-573)
 
+***
 
 ![image](https://user-images.githubusercontent.com/60520606/159128452-a40a409f-35cd-4c27-8c0e-d7b51d2714e8.png)
 
