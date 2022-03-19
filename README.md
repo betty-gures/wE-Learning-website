@@ -2,7 +2,9 @@
 
 ![image](https://user-images.githubusercontent.com/60520606/159128296-733f12f0-7c50-4bbb-aa16-22c3c055d897.png)
 
-This repostory has been made for **SWE 573** course project instructed by [Professor Suzan Uskudarlı](https://www.cmpe.boun.edu.tr/tr/people/suzan.uskudarli). I am a graduate student at [Software engineering](https://www.cmpe.boun.edu.tr/tr/graduate/swe) program from [Boğaziçi university](http://www.boun.edu.tr). SWE 573 is a course where all students individually make a platform for learning among a community of "people who love to learn"(website members). 
+* This repostory has been made for **SWE 573** course project instructed by [Professor Suzan Uskudarlı](https://www.cmpe.boun.edu.tr/tr/people/suzan.uskudarli). 
+* I am a graduate student at [Software engineering](https://www.cmpe.boun.edu.tr/tr/graduate/swe) program from [Boğaziçi university](http://www.boun.edu.tr). 
+* SWE 573 is a course where all students individually make a platform for learning among a community of "people who love to learn"(website members). 
 
 
 ***
