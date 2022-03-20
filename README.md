@@ -29,7 +29,7 @@
 
 ### Project Owner: 
 
-[Betul Güreş](https://github.com/betty-gures/SWE-573)
+[Betül Güreş](https://github.com/betty-gures)
 
 ***
 
