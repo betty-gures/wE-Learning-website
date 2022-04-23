@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'events',
     'social',
     'landing',
-
+    
     'crispy_forms',
 
     'django.contrib.admin',
