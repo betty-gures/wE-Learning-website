@@ -1,0 +1,12 @@
+.remove-default-btn {
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+}
+.edit-color {
+	"color: #333;
+}
+
+.post-link {
+	text-decoration: none;
+}
