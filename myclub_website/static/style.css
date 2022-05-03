@@ -10,3 +10,11 @@
 .post-link {
 	text-decoration: none;
 }
+
+.post-text {
+	padding-top: 0.5 rem;
+}
+.post-img {
+	float: left;
+	margin-right:1 rem;
+}

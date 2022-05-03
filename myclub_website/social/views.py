@@ -10,7 +10,13 @@ from django.views.generic.edit import UpdateView, DeleteView
 
 class PostListView(LoginRequiredMixin ,View):
 	def get(self, request, *args, **kwargs):
+		logged_in_user= request.user
 		posts = Post.objects.all().order_by('-created_on')
+		# this is displaying all posts 
+		# to filter the posts of followers we can:
+		# posts = Post.objects.filter(author__profile__followers__in=[logged_in_user.id])
+		# what we need is more like seeing what members of the learning page have posted
+		
 		form = PostForm()
 
 		context = { 
