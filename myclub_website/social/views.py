@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.views import View
@@ -134,3 +134,11 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         profile = self.get_object()
         return self.request.user == profile.user
+
+class AddFollower(LoginRequiredMixin, View):
+	def post(self, request, pk ,*args, **kwargs):
+		profile = UserProfile.objects.get(pk=pk)
+		profile.followers.add(request.user)
+
+		return redirect ('profile', pk=profile.pk)
+
