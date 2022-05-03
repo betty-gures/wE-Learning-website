@@ -35,6 +35,24 @@
                 <a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
             </div>
 			<!-- we are passing the pk (primary key) of each post. (Every django object has its own primary key) (views.py postdetailview- details keep the same pk as the parent post)-->
+			<div class="d-flex flex-row">
+				<form method="POST" action="{% url 'like' post.pk %}">
+					{% csrf_token %}
+					<input type="hidden" name="next" value="{{ request.path }}">
+					<button style="background-color: transparent; border: none; box-shadow: none;" type="submit">
+						<i class="far fa-thumbs-up"> </i>
+					</button>
+				</form>
+
+				<form method="POST" action="{% url 'dislike' post.pk %}">
+					{% csrf_token %}
+					<input type="hidden" name="next" value="{{ request.path }}">
+					<button style="background-color: transparent; border: none; box-shadow: none;" type="submit">
+						<i class="far fa-thumbs-down"> </i>
+					</button>
+				</form>
+
+			</div>
 		</div>
 	</div>
 	{% endfor %}
