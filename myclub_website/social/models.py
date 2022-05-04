@@ -19,7 +19,17 @@ class Comment(models.Model):
 	post = models.ForeignKey('Post', on_delete=models.CASCADE)
 	likes = models.ManyToManyField(User, blank=True, related_name='comment_likes')
 	dislikes = models.ManyToManyField(User, blank=True, related_name='comment_dislikes')
-	
+	parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='+')
+	@property
+	def children(self):
+		return Comment.objects.filter(parent=self).order_by('-created_on').all()
+
+	@property
+	def is_parent(self):
+		if self.parent is None:
+ 			return True
+		return False
+
 class UserProfile(models.Model):
 	user = models.OneToOneField(User, primary_key=True, verbose_name='user', related_name='profile', on_delete= models.CASCADE)
 	# Foreign key relationship between user profile model and user model (one profile <-> one user)

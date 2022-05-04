@@ -83,6 +83,9 @@ class PostDetailView( LoginRequiredMixin , View):
 
 		return render (request, 'social/post_detail.html',context)
 
+
+
+
 class PostEditView(LoginRequiredMixin, UserPassesTestMixin ,UpdateView):
 	model = Post
 	fields = ['body']
