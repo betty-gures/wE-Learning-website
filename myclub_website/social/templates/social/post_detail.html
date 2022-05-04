@@ -71,7 +71,7 @@
 		</div>
 	</div>  
 	{% for comment in comments %}
-
+    {% if comment.is_parent %}
 	<div class="row justify-content-center mt-3 mb-5 ">
 		<div class="col-md-5 col-sm-12 border-bottom">
 		<p>
@@ -124,7 +124,7 @@
 
 	<div class="row justify-content-center mt-3 mb-5 d-none" id="{{ comment.pk }}">
 		<div class="col-md-5 col-sm-12">
-			<form method="POST">
+            <form method="POST" action="{% url 'comment-reply' post.pk comment.pk %}">
 				{% csrf_token %}
 				{{ form | crispy }}
 				<div class="d-grid gap-2">
@@ -136,7 +136,29 @@
 				
 			</form>
 		</div>
-	</div>  
+	</div> 
+
+	{% for child_comment in comment.children %}
+    <div class="row justify-content-center mt-3 mb-5 child-comment">
+        <div class="col-md-5 col-sm-12 border-bottom">
+            <p>
+                <div>
+                    <a href="{% url 'profile' child_comment.author.profile.pk %}">
+                        <img class="round-circle post-img" height="30" width="30" src="{{ child_comment.author.profile.picture.url }}" />
+                    </a>
+                    <p class="post-text">
+                        <a class="text-primary post-link" href="{% url 'profile' child_comment.author.profile.pk %}">@{{ child_comment.author }}</a> {{ child_comment.created_on }}
+                    </p>
+                </div>
+                {% if request.user == child_comment.author %}
+                    <a href="{% url 'comment-delete' post.pk child_comment.pk %}" class="edit-color"><i class="fas fa-trash"></i></a>
+                {% endif %}
+            </p>
+            <p>{{ child_comment.comment }}</p>
+        </div>
+    </div> 
+	{% endfor %}
+    {% endif %}
 	{% endfor %}
 </div>
 <script type="text/javascript" src="{% static 'js/social.js' %}">
