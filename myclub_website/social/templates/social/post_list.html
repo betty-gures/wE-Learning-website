@@ -40,11 +40,19 @@
 			</div>
 			
             <div class="position-relative">
-            	{% if post.image %}
-                  <img src="{{ post.image.url }}" class="post-image" />
-                {% endif %}
-                <p>{{ post.body }}</p>
-                <a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
+            	{% if post.image.count > 0 %}
+                  	<div class="row">
+                    		{% for img in post.image.all %}
+                       			<div class="col-md-4 col-xs-12">
+                            			<img src="{{ img.image.url }}" class="post-image" />
+                       		 	</div>
+                    		{% endfor %}
+                  	</div>
+
+
+                	{% endif %}
+                	<p>{{ post.body }}</p>
+                	<a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
             </div>
 			<!-- we are passing the pk (primary key) of each post. (Every django object has its own primary key) (views.py postdetailview- details keep the same pk as the parent post)-->
 			<div class="d-flex flex-row">
