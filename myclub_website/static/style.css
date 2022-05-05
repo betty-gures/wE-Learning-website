@@ -19,6 +19,13 @@
 	float: left;
 	margin-right:1 rem;
 }
+
+.post-image {
+	max-width: 100%;
+	height: auto;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
 .child-comment {
 	margin-left: 2 rem;
 }
