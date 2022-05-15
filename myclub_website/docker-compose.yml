@@ -1,0 +1,48 @@
+version: '3.9'
+services:
+  db:
+    image: mysql:8.0
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=quotes
+      - MYSQL_ROOT_PASSWORD=mauFJcuf5dhRMQrjj
+    ports:
+      - '8000:8000'
+    volumes:
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      NODE_ENV: production
+      DB_HOST: db
+      DB_PORT: 8000
+      DB_USER: root
+      DB_PASSWORD: mauFJcuf5dhRMQrjj
+      DB_NAME: quotes
+    links:
+      - db
+    volumes:
+      - ./:/src
+
+    depends_on:
+      - db
+
+  migration:
+    image: project_web
+    command: python manage.py migrate --noinput
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+
+  volumes:
+    db:
+      driver: local
