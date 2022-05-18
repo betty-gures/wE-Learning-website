@@ -34,6 +34,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 INSTALLED_APPS = [
+    'courses.apps.CoursesConfig',
     'events',
     'social',
     'landing',
