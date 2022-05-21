@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'events',
     'social',
     'landing',
+    'colearning',
     
     'crispy_forms',
 
