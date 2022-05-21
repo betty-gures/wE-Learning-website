@@ -1,9 +1,9 @@
-#from django.urls import path
-#from . import views
+from django.urls import path
+from . import views
 #from .views import colearn_home
 
-#urlpatterns= [
+urlpatterns= [
 	# ex: /colearning/
-#	path('/colearning/'. views.colearn_home, name='colearn_home')
-#]
+	path('', views.home, name='home')
+]
 
