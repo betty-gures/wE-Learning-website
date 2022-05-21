@@ -60,10 +60,10 @@ body {
 
 <div id="display">
 
-<!-- <div class="container darker">
+ <div class="container darker">
   <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
   <span class="time-left">20th, April 2021</span>
-</div> -->
+</div> 
 
 </div>
 
@@ -73,7 +73,7 @@ $(document).ready(function(){
 setInterval(function(){
     $.ajax({
         type: 'GET',
-        url : "/getMessages/{{room}}/",
+        url : "colearning/getMessages/{{room}}/",
         success: function(response){
             console.log(response);
             $("#display").empty();
@@ -83,11 +83,11 @@ setInterval(function(){
                 $("#display").append(temp);
             }
         },
-        error: function(response){
-            alert('An error occured')
-        }
-    });
-},1000);
+        //error: function(response){
+            //alert('An error occured')
+        //}
+    //});
+//},1000);
 })
 </script>
 
@@ -126,7 +126,7 @@ setInterval(function(){
     }
     </style>
 
-    <form id="post-form">
+    <form id="post-form" method="POST">
         {% csrf_token %}
         <input type="hidden" name="username" id="username" value="{{username}}"/>
         <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
@@ -152,7 +152,7 @@ setInterval(function(){
         csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
       },
       success: function(data){
-         //alert(data)
+         alert(data)
       }
     });
     document.getElementById('message').value = ''
