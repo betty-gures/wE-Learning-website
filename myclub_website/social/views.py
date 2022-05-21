@@ -11,7 +11,7 @@ from django.views import View
 from .models import Post, Comment, UserProfile, Notification, ThreadModel, MessageModel, Image, Tag
 from .forms import PostForm, CommentForm, ThreadForm, MessageForm, ShareForm, ExploreForm
 from django.views.generic.edit import UpdateView, DeleteView
-
+from itertools import chain
 
 class PostListView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
@@ -19,11 +19,16 @@ class PostListView(LoginRequiredMixin, View):
         posts = Post.objects.filter(
             author__profile__followers__in=[logged_in_user.id]
         )
+        selfposts = Post.objects.filter(
+            author=logged_in_user.id
+        )
+        results=list(chain(selfposts, posts))
+
         form = PostForm()
         share_form = ShareForm()
 
         context = {
-            'post_list': posts,
+            'post_list': results,
             'shareform': share_form,
             'form': form,
         }

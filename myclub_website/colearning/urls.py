@@ -4,6 +4,8 @@ from . import views
 
 urlpatterns= [
 	# ex: /colearning/
-	path('', views.home, name='home')
+	path('', views.home, name='home'),
+	path('<str:room>/', views.room, name='room'),
+	path('checkview', views.home, name='home'),
 ]
 
