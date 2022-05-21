@@ -1,0 +1,132 @@
+/**
+ * Title: Budicons launch Flaticon Pack
+ * Author: Budi Tanrim
+ * Source: http://www.flaticon.com/packs/budicons-launch
+ * License:  CC BY 3.0 (http://creativecommons.org/licenses/by/3.0/)
+ */
+
+@font-face {
+	font-family: "fl-budicons-launch";
+	src: url("fl-budicons-launch.eot");
+	src: url("fl-budicons-launch.eot#iefix") format("embedded-opentype"),
+	url("fl-budicons-launch.woff") format("woff"),
+	url("fl-budicons-launch.ttf") format("truetype"),
+	url("fl-budicons-launch.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.fl-budicons-launch-ico,
+[class^="fl-budicons-launch-"]:before, [class*=" fl-budicons-launch-"]:before,
+[class^="fl-budicons-launch-"]:after, [class*=" fl-budicons-launch-"]:after {   
+	font-family: 'fl-budicons-launch';
+    font-size: inherit;
+	font-weight: 400;
+	font-style: normal;
+} 
+
+.fl-budicons-launch-arrows92:before {
+	content: "\e000";
+}
+.fl-budicons-launch-center12:before {
+	content: "\e001";
+}
+.fl-budicons-launch-chat57:before {
+	content: "\e002";
+}
+.fl-budicons-launch-checkmark17:before {
+	content: "\e003";
+}
+.fl-budicons-launch-croos:before {
+	content: "\e004";
+}
+.fl-budicons-launch-cropping2:before {
+	content: "\e005";
+}
+.fl-budicons-launch-drink47:before {
+	content: "\e006";
+}
+.fl-budicons-launch-email74:before {
+	content: "\e007";
+}
+.fl-budicons-launch-equalizer29:before {
+	content: "\e008";
+}
+.fl-budicons-launch-file71:before {
+	content: "\e009";
+}
+.fl-budicons-launch-folder177:before {
+	content: "\e00a";
+}
+.fl-budicons-launch-images22:before {
+	content: "\e00b";
+}
+.fl-budicons-launch-images23:before {
+	content: "\e00c";
+}
+.fl-budicons-launch-left162:before {
+	content: "\e00d";
+}
+.fl-budicons-launch-left163:before {
+	content: "\e00e";
+}
+.fl-budicons-launch-map90:before {
+	content: "\e00f";
+}
+.fl-budicons-launch-menu47:before {
+	content: "\e010";
+}
+.fl-budicons-launch-minus87:before {
+	content: "\e011";
+}
+.fl-budicons-launch-more15:before {
+	content: "\e012";
+}
+.fl-budicons-launch-padlock42:before {
+	content: "\e013";
+}
+.fl-budicons-launch-paper123:before {
+	content: "\e014";
+}
+.fl-budicons-launch-photo185:before {
+	content: "\e015";
+}
+.fl-budicons-launch-placeholder21:before {
+	content: "\e016";
+}
+.fl-budicons-launch-plus72:before {
+	content: "\e017";
+}
+.fl-budicons-launch-printer80:before {
+	content: "\e018";
+}
+.fl-budicons-launch-recycling12:before {
+	content: "\e019";
+}
+.fl-budicons-launch-right162:before {
+	content: "\e01a";
+}
+.fl-budicons-launch-right164:before {
+	content: "\e01b";
+}
+.fl-budicons-launch-search81:before {
+	content: "\e01c";
+}
+.fl-budicons-launch-speedometer31:before {
+	content: "\e01d";
+}
+.fl-budicons-launch-squares24:before {
+	content: "\e01e";
+}
+.fl-budicons-launch-sun82:before {
+	content: "\e01f";
+}
+.fl-budicons-launch-user146:before {
+	content: "\e020";
+}
+.fl-budicons-launch-visualization5:before {
+	content: "\e021";
+}
+.fl-budicons-launch-web34:before {
+	content: "\e022";
+}

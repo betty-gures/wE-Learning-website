@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="wide wow-animation scrollTo" lang="en">
+ {% include 'head.html' %}
+  <body>
+    <div class="page-loader page-loader-variant-1">
+      <div>
+        <img class='img-fluid' style='margin-top: -20px;margin-left: -18px;' width='377' height='100' src="{% static 'img/logo-big.png' %}" alt=''/>
+        <div class="offset-top-41 text-center">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page text-center">
+      {% include 'header.html' %}
+      {% block breadcrumbs %} {% endblock %}
+      {% block content %} {% endblock %}
+      {% include 'footer.html' %}
+    </div>
+    <!-- Global RD Mailform Output -->
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="{% static 'js/core.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

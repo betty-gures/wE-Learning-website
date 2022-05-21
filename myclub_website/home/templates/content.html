@@ -1,0 +1,75 @@
+{% load static %}
+<!-- Page Content-->
+      <section class="section novi-background section-98 section-sm-124">
+        <div class="container">
+          <!-- Shop Grid View-->
+                    <div class="toolbar-shop">
+                      <div class="toolbar-shop-sorter"><a class="toolbar-shop-icon" href="shop-grid-no-sidebar.html"><span class="novi-icon icon-xxs mdi mdi-view-module"></span></a><a class="toolbar-shop-icon active" href="shop-list-no-sidebar.html"><span class="novi-icon icon-xxs mdi mdi-view-list"></span></a></div>
+                      <div class="toolbar-shop-pager"><span class="toolbar-shop-current text-mantis">1-6 of 15</span>
+                        <div class="form-group">
+                          <label>Show:</label>
+                          <select class="form-control select-filter toolbar-shop-pager-select" data-placeholder="Select an option" data-minimum-results-for-search="Infinity">
+                            <option>6</option>
+                            <option>12</option>
+                            <option>18</option>
+                            <option>24</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+{% for rs in coursesdata %}
+          <div class="offset-top-41">
+                      <!-- Product-->
+                      <div class="product product-list product-list-wide unit flex-md-row align-items-sm-start">
+                        <!-- Product Image-->
+                        <div class="product-image unit-left">
+                          <img class="img-fluid product-image-area" src="{% static 'images/shop/product-01-270x360.png' %}" alt="">
+                        </div>
+                        <div class="unit-body text-left">
+                          <div class="unit flex-xl-row align-items-xl-start">
+                            <div class="unit-body">
+                              <!-- Product Brand-->
+                              <p class="product-brand font-italic text-dark">Armani Brand</p>
+                              <!-- Product Title-->
+                              <h2 class="product-title offset-top-0">
+                                <a href="shop-single-product-no-sidebar.html">{{ rs.title }}</a>
+                              </h2>
+                              <!-- Product Rating-->
+                              <div class="product-rating offset-top-20"><span class="novi-icon mdi mdi-star"></span><span class="novi-icon mdi mdi-star"></span><span class="novi-icon mdi mdi-star"></span><span class="novi-icon mdi mdi-star-half"></span><span class="novi-icon mdi mdi-star-outline"></span><span class="product-review-count text-dark">4 customer reviews</span></div>
+                              <p class="product-desc">Fashion has always been so temporary and uncertain. You can’t keep up with it. This social phenomenon is very whimsical, thus we as the consumers always try to stay in touch with all the latest fashion tendencies.</p><a class="font-weight-bold text-picton-blue d-none d-xl-inline-block" href="shop-single-product-no-sidebar.html">Learn More</a>
+                            </div>
+                            <div class="unit-right product-list-right">
+                              <!-- Product price-->
+                              <div class="product-price font-weight-bold h5 offset-top-14"><span class="product-price-new">$35.00</span><span class="product-price-old text-dark small">$57.00</span>
+                              </div>
+                              <div class="form-group product-number">
+                                <label class="text-dark">Quantity:</label>
+                                <input class="form-control input-sm form-control-impressed" type="number" data-zeros="true" value="1" min="1" max="20">
+                              </div>
+                              <!-- Product Add To cart--><a class="btn btn-sm btn-picton-blue btn-icon btn-icon-left product-btn offset-top-20 offset-sm-top-0 offset-xl-top-20 d-xl-block" href="shop-single-product-no-sidebar.html"><span class="novi-icon icon mdi mdi-cart-outline"></span>Add to Cart</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          </div>
+{% endfor %}
+
+
+
+
+
+          <div class="offset-top-66">
+            <!-- Bootstrap Pagination-->
+            <nav>
+              <ul class="pagination pagination-sm">
+                <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span class="novi-icon mdi mdi-chevron-double-left" aria-hidden="true"></span></a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span class="novi-icon mdi mdi-chevron-double-right" aria-hidden="true"></span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>

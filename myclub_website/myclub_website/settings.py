@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'social',
     'landing',
     'colearning',
+    'home.apps.HomeConfig',
     
     'crispy_forms',
 

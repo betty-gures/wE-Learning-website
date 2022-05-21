@@ -1,0 +1,466 @@
+@media (min-width: 1200px) {
+  .booking-form { width: 369px; }
+  footer .booking-form { width: auto; }
+}
+
+.rd-mailform-2 {
+  position: relative;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rd-mailform-2 .stick-to-bottom {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.rd-mailform-2 .stick-to-bottom * + .form-wrap {
+  margin-top: 0;
+}
+
+.rd-mailform-2 .align-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.rd-mailform-2 .card-box {
+  position: relative;
+  padding: 20px 10px;
+}
+
+.rd-mailform-2 .card-box:after {
+  content: '\f023';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: "FontAwesome";
+  font-size: 18px;
+  line-height: 1;
+  color: #5d6062;
+}
+
+@media (min-width: 992px) {
+  .rd-mailform-2 .card-box {
+    padding: 33px;
+  }
+}
+
+.rd-mailform-2 * + .button {
+  margin-top: 10px;
+}
+
+.rd-mailform-2 * + .form-wrap {
+  margin-top: 10px;
+}
+
+.rd-mailform-2 * + .button-wrap {
+  margin-top: 36px;
+}
+
+.rd-mailform-2 .form-label-outside + .form-input {
+  margin-top: 7px;
+}
+
+@media (min-width: 992px) {
+  .rd-mailform-2 * + .button {
+    margin-top: 50px;
+  }
+  .rd-mailform-2 * + .form-wrap {
+    margin-top: 19px;
+  }
+  .rd-mailform-2 .divider-word + .form-wrap {
+    margin-top: 21px;
+  }
+}
+
+.rd-mailform-2 .form-input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 12px 18px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fff;
+  background-color: transparent;
+  background-image: none;
+  border: 2px solid #374351;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.rd-mailform-2 .form-input:focus {
+  outline: 0;
+}
+
+.rd-mailform-2 textarea.form-input {
+  height: 139px;
+  min-height: 50px;
+  max-height: 250px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.rd-mailform-2 .form-wrap {
+  position: relative;
+}
+
+.rd-mailform-2 .form-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  margin: 0;
+  padding: 12px 18px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  pointer-events: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: #fff;
+}
+
+.rd-mailform-2 .form-label.focus {
+  opacity: 0;
+}
+
+.rd-mailform-2 .form-label.auto-fill {
+  color: #fff;
+}
+
+[data-x-mode="true"] .form-label {
+  pointer-events: auto;
+}
+
+.rd-mailform-2 .form-label-outside {
+  display: block;
+  margin: 0 18px;
+  font-weight: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .rd-mailform-2 .form-label-outside {
+    position: static;
+  }
+}
+
+.rd-mailform-2 .form-validation {
+  position: absolute;
+  top: 2px;
+  left: 18px;
+  right: 18px;
+  z-index: 11;
+  text-align: right;
+  font-size: 11px;
+  line-height: 11px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: #d9534f;
+}
+
+.rd-mailform-2 .validation-with-outside-label .form-validation {
+  top: 31px;
+}
+
+.rd-mailform-2 .form-validation-left .form-validation {
+  top: 100%;
+  left: 0;
+  right: auto;
+}
+
+.rd-mailform-2 #form-output-global {
+  position: fixed;
+  bottom: 30px;
+  left: 15px;
+  -webkit-transform: translateX(-500px);
+  -ms-transform: translateX(-500px);
+  transform: translateX(-500px);
+  z-index: 9999999;
+  font-size: 14px;
+  -webkit-transition: .3s all ease;
+  transition: .3s all ease;
+  visibility: hidden;
+}
+
+.rd-mailform-2 #form-output-global.active {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  visibility: visible;
+}
+
+@media (min-width: 480px) {
+  .rd-mailform-2 #form-output-global {
+    left: 30px;
+  }
+}
+
+.rd-mailform-2 .form-output {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 2px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.rd-mailform-2 .form-output.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rd-mailform-2 .form-output.error {
+  color: #d9534f;
+}
+
+.rd-mailform-2 .form-output.success {
+  color: #5cb85c;
+}
+
+.rd-mailform-2 .radio .radio-custom,
+.rd-mailform-2 .radio-inline .radio-custom,
+.rd-mailform-2 .checkbox .checkbox-custom,
+.rd-mailform-2 .checkbox-inline .checkbox-custom {
+  opacity: 0;
+}
+
+.rd-mailform-2 .radio .radio-custom, .rd-mailform-2 .radio .radio-custom-dummy,
+.rd-mailform-2 .radio-inline .radio-custom,
+.rd-mailform-2 .radio-inline .radio-custom-dummy,
+.rd-mailform-2 .checkbox .checkbox-custom,
+.rd-mailform-2 .checkbox .checkbox-custom-dummy,
+.rd-mailform-2 .checkbox-inline .checkbox-custom,
+.rd-mailform-2 .checkbox-inline .checkbox-custom-dummy {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  outline: none;
+  cursor: pointer;
+}
+
+.rd-mailform-2 .radio .radio-custom-dummy,
+.rd-mailform-2 .radio-inline .radio-custom-dummy,
+.rd-mailform-2 .checkbox .checkbox-custom-dummy,
+.rd-mailform-2 .checkbox-inline .checkbox-custom-dummy {
+  pointer-events: none;
+  background: #f4f4f4;
+}
+
+.rd-mailform-2 .radio .radio-custom-dummy:after,
+.rd-mailform-2 .radio-inline .radio-custom-dummy:after,
+.rd-mailform-2 .checkbox .checkbox-custom-dummy:after,
+.rd-mailform-2 .checkbox-inline .checkbox-custom-dummy:after {
+  position: absolute;
+  opacity: 0;
+}
+
+.rd-mailform-2 .radio .radio-custom:focus,
+.rd-mailform-2 .radio-inline .radio-custom:focus,
+.rd-mailform-2 .checkbox .checkbox-custom:focus,
+.rd-mailform-2 .checkbox-inline .checkbox-custom:focus {
+  outline: none;
+}
+
+.rd-mailform-2 .radio-inline,
+.rd-mailform-2 .checkbox-inline {
+  padding-left: 25px;
+  font-weight: 300;
+}
+
+.rd-mailform-2 .radio-inline .heading,
+.rd-mailform-2 .checkbox-inline .heading {
+  font-family: "Montserrat";
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.rd-mailform-2 .radio-custom:checked + .radio-custom-dummy:after,
+.rd-mailform-2 .checkbox-custom:checked + .checkbox-custom-dummy:after {
+  opacity: 1;
+}
+
+.rd-mailform-2 .radio input[type="radio"],
+.rd-mailform-2 .radio-inline input[type="radio"] {
+  margin: auto;
+}
+
+.rd-mailform-2 .radio .radio-custom-dummy,
+.rd-mailform-2 .radio-inline .radio-custom-dummy {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.rd-mailform-2 .radio .radio-custom-dummy:after,
+.rd-mailform-2 .radio-inline .radio-custom-dummy:after {
+  content: '';
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  background: #ed5456;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.rd-mailform-2 .checkbox input[type="checkbox"],
+.rd-mailform-2 .checkbox-inline input[type="checkbox"] {
+  margin: auto;
+}
+
+.rd-mailform-2 .checkbox .checkbox-custom-dummy,
+.rd-mailform-2 .checkbox-inline .checkbox-custom-dummy {
+  pointer-events: none;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin-left: 0;
+  left: 0;
+}
+
+.rd-mailform-2 .checkbox .checkbox-custom-dummy:after,
+.rd-mailform-2 .checkbox-inline .checkbox-custom-dummy:after {
+  content: '\e5ca';
+  font-family: 'Material Icons';
+  font-size: 20px;
+  line-height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #2e2e2f;
+}
+
+.rd-mailform-2 .subscribe-form {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  max-width: 680px;
+  width: 100%;
+}
+
+.rd-mailform-2 .subscribe-form .button-wrap,
+.rd-mailform-2 .subscribe-form .form-wrap {
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.rd-mailform-2 .subscribe-form .button {
+  width: 100%;
+}
+
+.rd-mailform-2 .subscribe-form * + .button-wrap {
+  margin-top: 10px;
+}
+
+@media (min-width: 480px) {
+  .rd-mailform-2 .subscribe-form {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  .rd-mailform-2 .subscribe-form .form-wrap {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+  }
+  .rd-mailform-2 .subscribe-form .button-wrap {
+    -webkit-flex-basis: 136px;
+    -ms-flex-preferred-size: 136px;
+    flex-basis: 136px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    margin-top: 0;
+    margin-left: 10px;
+  }
+  .ie-11 .rd-mailform-2 .subscribe-form .button-wrap,
+  .ie-edge .rd-mailform-2 .subscribe-form .button-wrap {
+    min-width: 180px;
+  }
+}
+
+.rd-mailform-2 .recaptcha {
+  -webkit-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+@media (min-width: 480px) {
+  .rd-mailform-2 .recaptcha {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+.rd-mailform-2 .recaptcha-validation .form-validation {
+  left: 15px;
+  right: 15px;
+  top: 10px;
+  text-align: left;
+}
+
+@media (min-width: 480px) {
+  .rd-mailform-2 .recaptcha-validation .form-validation {
+    top: 2px;
+  }
+}
+
+.rd-mailform-2 .btn {
+  width: auto;
+  padding: 16px 37px;
+  font: 800 18px/23px "Raleway", sans-serif;
+}

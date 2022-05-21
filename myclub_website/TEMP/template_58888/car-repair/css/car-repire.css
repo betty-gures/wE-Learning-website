@@ -1,0 +1,294 @@
+@font-face {
+    font-family: 'Car Repire';
+    src: url('../fonts/CarRepire-Regular.eot?23942566');
+    src: url('../fonts/CarRepire-Regular.eot?23942566#iefix') format('embedded-opentype'),
+    url('../fonts/CarRepire-Regular.woff?23942566') format('woff'),
+    url('../fonts/CarRepire-Regular.ttf?23942566') format('truetype'),
+    url('../fonts/CarRepire-Regular.svg?23942566#mercury') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="car-repire-icon-"]:before,
+[class*="car-repire-icon-"]:before,
+.car-repire-ico {
+    font-family: 'Car Repire';
+    font-weight: 400;
+    font-style: normal;
+    font-size: inherit;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.car-repire-icon-01:before {
+    content: '\e800';
+}
+
+.car-repire-icon-02:before {
+    content: '\e801';
+}
+
+.car-repire-icon-03:before {
+    content: '\e802';
+}
+
+.car-repire-icon-04:before {
+    content: '\e803';
+}
+
+.car-repire-icon-05:before {
+    content: '\e804';
+}
+
+.car-repire-icon-06:before {
+    content: '\e805';
+}
+
+.car-repire-icon-07:before {
+    content: '\e806';
+}
+
+.car-repire-icon-08:before {
+    content: '\e807';
+}
+
+.car-repire-icon-09:before {
+    content: '\e808';
+}
+
+.car-repire-icon-10:before {
+    content: '\e809';
+}
+
+.car-repire-icon-11:before {
+    content: '\e80a';
+}
+
+.car-repire-icon-12:before {
+    content: '\e80b';
+}
+
+.car-repire-icon-13:before {
+    content: '\e80c';
+}
+
+.car-repire-icon-14:before {
+    content: '\e80d';
+}
+
+.car-repire-icon-15:before {
+    content: '\e80e';
+}
+
+.car-repire-icon-16:before {
+    content: '\e80f';
+}
+
+.car-repire-icon-17:before {
+    content: '\e810';
+}
+
+.car-repire-icon-key-outline:before {
+    content: '\e811';
+}
+
+.car-repire-icon-19:before {
+    content: '\e812';
+}
+
+.car-repire-icon-20:before {
+    content: '\e813';
+}
+
+.car-repire-icon-40:before {
+    content: '\e814';
+}
+
+.car-repire-icon-39:before {
+    content: '\e815';
+}
+
+.car-repire-icon-38:before {
+    content: '\e816';
+}
+
+.car-repire-icon-37:before {
+    content: '\e817';
+}
+
+.car-repire-icon-36:before {
+    content: '\e818';
+}
+
+.car-repire-icon-35:before {
+    content: '\e819';
+}
+
+.car-repire-icon-34:before {
+    content: '\e81a';
+}
+
+.car-repire-icon-33:before {
+    content: '\e81b';
+}
+
+.car-repire-icon-32:before {
+    content: '\e81c';
+}
+
+.car-repire-icon-31:before {
+    content: '\e81d';
+}
+
+.car-repire-icon-30:before {
+    content: '\e81e';
+}
+
+.car-repire-icon-29:before {
+    content: '\e81f';
+}
+
+.car-repire-icon-28:before {
+    content: '\e820';
+}
+
+.car-repire-icon-27:before {
+    content: '\e821';
+}
+
+.car-repire-icon-26:before {
+    content: '\e822';
+}
+
+.car-repire-icon-25:before {
+    content: '\e823';
+}
+
+.car-repire-icon-24:before {
+    content: '\e824';
+}
+
+.car-repire-icon-23:before {
+    content: '\e825';
+}
+
+.car-repire-icon-22:before {
+    content: '\e826';
+}
+
+.car-repire-icon-21:before {
+    content: '\e827';
+}
+
+.car-repire-icon-41:before {
+    content: '\e828';
+}
+
+.car-repire-icon-42:before {
+    content: '\e829';
+}
+
+.car-repire-icon-43:before {
+    content: '\e82a';
+}
+
+.car-repire-icon-45:before {
+    content: '\e82c';
+}
+
+.car-repire-icon-46:before {
+    content: '\e82d';
+}
+
+.car-repire-icon-47:before {
+    content: '\e82e';
+}
+
+.car-repire-icon-48:before {
+    content: '\e82f';
+}
+
+.car-repire-icon-49:before {
+    content: '\e830';
+}
+
+.car-repire-icon-50:before {
+    content: '\e831';
+}
+
+.car-repire-icon-51:before {
+    content: '\e832';
+}
+
+.car-repire-icon-52:before {
+    content: '\e833';
+}
+
+.car-repire-icon-53:before {
+    content: '\e834';
+}
+
+.car-repire-icon-54:before {
+    content: '\e835';
+}
+
+.car-repire-icon-55:before {
+    content: '\e836';
+}
+
+.car-repire-icon-56:before {
+    content: '\e837';
+}
+
+.car-repire-icon-57:before {
+    content: '\e838';
+}
+
+.car-repire-icon-58:before {
+    content: '\e839';
+}
+
+.car-repire-icon-key:before {
+    content: '\e83a';
+}
+
+.car-repire-icon-mail:before {
+    content: '\e83b';
+}
+
+.car-repire-icon-quote-circled:before {
+    content: '\e83c';
+}
+
+.car-repire-icon-thumbs-up:before {
+    content: '\e83f';
+}
+
+.car-repire-icon-thumbs-down:before {
+    content: '\e840';
+}
+
+.car-repire-icon-chat:before {
+    content: '\e843';
+}
+
+.car-repire-icon-login:before {
+    content: '\e844';
+}
+
+.car-repire-icon-logout:before {
+    content: '\e845';
+}
+
+.car-repire-icon-basket:before {
+    content: '\e846';
+}
+
+.car-repire-icon-comment-inv-alt2:before {
+    content: '\e84a';
+}
+
+.car-repire-icon-warehouse:before {
+    content: '\e84b';
+}

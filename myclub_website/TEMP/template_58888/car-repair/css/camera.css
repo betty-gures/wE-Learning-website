@@ -1,0 +1,383 @@
+/**
+* @subsection   Camera.css
+*
+* @description   a jQuery slideshow with many effects, transitions, easy to customize, using canvas and mobile ready, *based on jQuery 1.4+
+*
+* @author       Manuel Masia
+* @link         www.pixedelic.com
+* @license      MIT license - http://www.opensource.org/licenses/mit-license.php
+**/
+.camera_container {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .camera_container {
+    padding-bottom: 725px;
+  }
+}
+
+@media (min-width: 1771.83771px) {
+  .camera_container {
+    padding-bottom: 40.91797%;
+  }
+}
+
+.camera_wrap {
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin-bottom: 0 !important;
+  height: 100%;
+  background: #fff;
+  z-index: 0;
+}
+
+@media (min-width: 992px) {
+  .camera_wrap {
+    position: absolute;
+  }
+}
+
+@media (max-width: 767px) {
+  .camera_wrap {
+    height: 525px !important;
+  }
+}
+
+.camera_wrap img {
+  max-width: none !important;
+}
+
+.camera_fakehover {
+  height: 100%;
+  min-height: 60px;
+  position: relative;
+  width: 100%;
+}
+
+.camera_src {
+  display: none;
+}
+
+.cameraCont, .cameraContents {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -ms-justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+}
+
+.cameraSlide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  color: #fff;
+}
+
+.cameraContent {
+  display: none;
+}
+
+@media (min-width: 1300px) {
+  .cameraContent h4 {
+    line-height: 1.5833;
+  }
+}
+
+.camera_target {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  text-align: left;
+  z-index: 0;
+}
+
+.camera_overlayer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.camera_target_content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.camera_loader {
+  background: #fff url(../images/camera-loader.gif) no-repeat center;
+  border: 1px solid #ffffff;
+  border-radius: 18px;
+  height: 36px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  margin: -18px 0 0 -18px;
+  top: 50%;
+  width: 36px;
+  z-index: 3;
+}
+
+.camera_nav_cont {
+  height: 65px;
+  overflow: hidden;
+  position: absolute;
+  right: 9px;
+  top: 15px;
+  width: 120px;
+  z-index: 4;
+}
+
+.camerarelative {
+  overflow: hidden;
+  position: relative;
+}
+
+.imgFake {
+  cursor: pointer;
+}
+
+.camera_command_wrap .hideNav {
+  display: none;
+}
+
+.camera_command_wrap {
+  left: 0;
+  position: relative;
+  right: 0;
+  z-index: 4;
+}
+
+.showIt {
+  display: none;
+}
+
+.camera_clear {
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: -1px 0 25px;
+  position: relative;
+}
+
+.camera_caption {
+  display: none;
+}
+
+.cameraContent .camera_caption {
+  display: block;
+}
+
+/*================   Custom Layout&Styles   =====================*/
+.camera_caption {
+  color: #fff;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .camera_caption {
+    text-align: left;
+  }
+}
+
+.camera_pag {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-width: 300px;
+}
+
+.camera_pag:before, .camera_pag:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.camera_pag:after {
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  .camera_pag {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .camera_pag {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .camera_pag {
+    width: 1200px;
+  }
+}
+
+.camera_pag_ul {
+  position: relative;
+  top: -50px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .camera_pag_ul {
+    top: -100px;
+    text-align: left;
+  }
+}
+
+.camera_pag_ul li {
+  display: inline-block;
+  position: relative;
+  width: 21px;
+  height: 21px;
+  line-height: 21px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 3px solid #1caffc;
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+.camera_pag_ul li.cameracurrent, .camera_pag_ul li:hover {
+  background: #1caffc;
+}
+
+.camera_pag_ul li + li {
+  margin-left: 11px;
+}
+
+.camera_pag_ul li > span {
+  display: none;
+}
+
+.onCamera-abs {
+  padding-top: 30px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+[data-x-mode="true"] .onCamera-abs {
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .onCamera-abs {
+    position: absolute;
+    top: 0px;
+    padding: 0;
+  }
+
+  [data-x-mode="true"] .onCamera-abs {
+    height: 100%;
+  }
+}
+
+.onCamera__cnt {
+  pointer-events: all;
+}
+
+.onCamera {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-width: 300px;
+  padding-left: 15px;
+  padding-right: 15px;
+  z-index: 10;
+}
+
+.onCamera:before, .onCamera:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+.onCamera:after {
+  clear: both;
+}
+
+@media (min-width: 768px) {
+  .onCamera {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .onCamera {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .onCamera {
+    width: 1200px;
+  }
+}
+
+.onCamera * + .rd-mailform {
+  margin-top: 22px;
+}
+
+.onCamera .booking-form {
+  float: right;
+}
+
+.onCamera .bg-primary {
+  background-color: rgba(28, 175, 252, 0.85);
+}
+
+.onCamera h3 {
+  letter-spacing: 0.06em;
+}
