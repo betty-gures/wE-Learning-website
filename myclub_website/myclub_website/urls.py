@@ -9,6 +9,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('social/', include('social.urls')),
     path('courses/', include('courses.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    #path('colearning/', include('colearning.urls')),
 ]
 
 if settings.DEBUG:
