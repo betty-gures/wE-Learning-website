@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from courses.models import Courses
+from home.forms import SearchForm
 
 # Create your views here.
 def index(request):
@@ -13,8 +14,20 @@ def aboutus(request):
     return render(request, 'aboutus.html', context)
 
 def course_detail(request,id):
-    mesaj="ders",id,"/"
-    return HttpResponse(mesaj)
+    course=Courses.objects.get(pk=id)
+    context={'page':'course_detail',
+             'course':course}
+    return render(request, 'course_detail.html', context)
+
+def course_search(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            courses = Courses.objects.filter(title__icontains=query)
+            context={'page':'search',
+             'courses':courses}
+            return render(request, 'search.html', context)
 
 
 # Create your views here.

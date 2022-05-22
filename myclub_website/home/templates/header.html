@@ -48,10 +48,11 @@
                   <a class="rd-navbar-search-toggle mdi" data-rd-navbar-toggle=".rd-navbar-inner,.rd-navbar-search" href="#">
                     <span></span>
                   </a>
-                  <form class="rd-navbar-search-form search-form-icon-right rd-search" action="search-results.html" method="GET">
+                  <form class="rd-navbar-search-form search-form-icon-right rd-search" action="/search/" method="post">
+                    {% csrf_token %}
                     <div class="form-group">
                       <label class="form-label" for="rd-navbar-search-form-control">Type and hit enter...</label>
-                      <input class="rd-navbar-search-form-control form-control form-control-gray-lightest" id="rd-navbar-search-form-control" type="text" name="s" autocomplete="off"/>
+                      <input class="rd-navbar-search-form-control form-control form-control-gray-lightest" id="rd-navbar-search-form-control" type="text" name="query" autocomplete="off"/>
                     </div>
                   </form>
                 </div>
