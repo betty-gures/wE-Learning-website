@@ -17,6 +17,8 @@ urlpatterns = [
     path('aboutus/', views.aboutus, name='aboutus'),
     path('course_detail/<int:id>', views.course_detail, name='course_detail'),
     #path('category_detail/<int:id>', views.category_detail, name='category_detail'),
+    path('categories/', views.categories, name='categories'),
+    path('category_detail/<int:id>', views.category_detail, name='category_detail'),
     path('search/', views.course_search, name='course_search'),
 ]
 

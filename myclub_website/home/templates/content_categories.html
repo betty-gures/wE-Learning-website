@@ -1,0 +1,20 @@
+
+            <br>
+
+
+
+ <section class="section novi-background section-98 section-md-110">
+        <div class="container">
+          <div class="row justify-content-sm-center text-left">
+              {% for rs in categoriesdata %}
+            <div class="col-sm-4">
+                            <li class="post-meta inset-left-20">
+                                <span class="novi-icon icon icon-xxs text-middle mdi mdi-file-document"></span>
+                                <span class="text-middle"><a href="/category_detail/{{rs.id}}">{{ rs.title }}</a></span>
+                            </li>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+ </section>
+

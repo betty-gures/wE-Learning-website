@@ -13,17 +13,13 @@ class Category(models.Model):
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10,choices=STATUS)
     slug = models.SlugField()
-    parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
-    def _str_(self):
-        full_path =[self.title]
-        k= self.parent
-        while k is not None:
-            full_path.append(k.title)
-            k= k.parent
-        return ' >> '.join(full_path[::-1])
+    def __str__(self):
+        return self.title
+
+    
         
 
 class Courses(models.Model):
@@ -40,6 +36,25 @@ class Courses(models.Model):
     detail = RichTextUploadingField()
 
     status = models.CharField(max_length=10,choices=STATUS)
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Roadmap(models.Model):
+    STATUS = (
+        ('True', 'Evet'),
+        ('False', 'Hayır'),
+    )
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE) #relation with Category table
+    title = models.CharField(max_length=255)
+    detail = models.TextField(blank=True,)
+    warning = models.TextField(blank=True,)
+    order_number = models.IntegerField(default=0)
+
+    status = models.CharField(max_length=10,choices=STATUS,default=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 

@@ -11,7 +11,7 @@
                 <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap"><span></span></button>
                 <!--Navbar Brand-->
                 <div class="rd-navbar-brand">
-                  <a href="index.html">
+                  <a href="/">
                     <img style='margin-top: -5px;margin-left: -15px;' width='226' height='60' src="{% static 'img/logo.png' %}" alt=''/>
                   </a>
                 </div>
@@ -20,14 +20,14 @@
                 <div class="rd-navbar-nav-wrap">
                   <div class="rd-navbar-mobile-scroll">
                     <!--Navbar Brand Mobile-->
-                    <div class="rd-navbar-mobile-brand"><a href="index.html">
+                    <div class="rd-navbar-mobile-brand"><a href="/">
                       <img style='margin-top: -5px;margin-left: -15px;' width='138' height='31' src="{% static 'img/logo.png' %}' alt=''/></a></div>
                     <div class="form-search-wrap">
                       <!-- RD Search Form-->
-                      <form class="form-search rd-search" action="search-results.html" method="GET">
+                      <form class="form-search rd-search" action="/search/" method="POST">
                         <div class="form-group">
                           <label class="form-label form-search-label form-label-sm" for="rd-navbar-form-search-widget">Search</label>
-                          <input class="form-search-input input-sm form-control form-control-gray-lightest input-sm" id="rd-navbar-form-search-widget" type="text" name="s" autocomplete="off"/>
+                          <input class="form-search-input input-sm form-control form-control-gray-lightest input-sm" id="rd-navbar-form-search-widget" type="text" name="query" autocomplete="off"/>
                         </div>
                         <button class="form-search-submit" type="submit"><span class="novi-icon mdi mdi-magnify"></span></button>
                       </form>
@@ -51,7 +51,7 @@
                   <form class="rd-navbar-search-form search-form-icon-right rd-search" action="/search/" method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                      <label class="form-label" for="rd-navbar-search-form-control">Type and hit enter...</label>
+                      <label class="form-label" for="rd-navbar-search-form-control">Type to search courses...</label>
                       <input class="rd-navbar-search-form-control form-control form-control-gray-lightest" id="rd-navbar-search-form-control" type="text" name="query" autocomplete="off"/>
                     </div>
                   </form>

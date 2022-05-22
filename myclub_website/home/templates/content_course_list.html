@@ -21,7 +21,7 @@
                               </h2>
                               <!-- Product Rating-->
                               <div class="product-rating offset-top-20"><span class="novi-icon mdi mdi-star"></span><span class="novi-icon mdi mdi-star"></span><span class="novi-icon mdi mdi-star"></span><span class="novi-icon mdi mdi-star-half"></span><span class="novi-icon mdi mdi-star-outline"></span><span class="product-review-count text-dark">4 customer reviews</span></div>
-                              <p class="product-desc">{{ rs.lookin }}</p>
+                              <p class="product-desc">{{ rs.lookin | safe }}</p>
                                 <a class="font-weight-bold text-picton-blue d-none d-xl-inline-block" href="/course_detail/{{rs.id}}">Learn More</a>
                             </div>
                             <div class="unit-right product-list-right">

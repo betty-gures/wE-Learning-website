@@ -24,6 +24,14 @@
                   <span class="product-review-count text-dark">4 customer reviews</span>
                 </div>
                 <div class="card-body">{{course.detail | safe}}</div>
+                <div class="product-rating offset-top-20 ">
+                  <h3 style="color: #111111 !important;" class="product-title offset-top-20">Roadmap</h3>
+                <ul style="color: #111111 !important;">
+      {% for rs in roadmap %}
+      <li>{{ rs.title }}</li>
+          
+{% endfor %}
+<ul>
 
 
 
@@ -35,3 +43,5 @@
 
         </div>
       </section>
+
+      

@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from courses.models import Courses
+from courses.models import Courses,Category,Roadmap
 from home.forms import SearchForm
 
 # Create your views here.
@@ -15,8 +15,10 @@ def aboutus(request):
 
 def course_detail(request,id):
     course=Courses.objects.get(pk=id)
+    roadmap=Roadmap.objects.filter(course_id=id)
     context={'page':'course_detail',
-             'course':course}
+             'course':course,
+             'roadmap': roadmap}
     return render(request, 'course_detail.html', context)
 
 def course_search(request):
@@ -28,7 +30,16 @@ def course_search(request):
             context={'page':'search',
              'courses':courses}
             return render(request, 'search.html', context)
+def categories(request):
+    categoriesdata = Category.objects.all().order_by('title')[:1000]
+    context={'categoriesdata':categoriesdata, 'page':'categories'}
+    return render(request, 'categories.html', context)
 
+def category_detail(request,id):
+    courses=Courses.objects.filter(category_id=id)
+    context={'page':'category_detail',
+             'courses':courses}
+    return render(request, 'category_detail.html', context)
 
 # Create your views here.
 #def index(request):

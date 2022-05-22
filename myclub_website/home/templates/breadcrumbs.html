@@ -11,6 +11,12 @@
                 About Us
                 {% elif page == 'course_detail'%}
                 Learning Enviroment
+                {% elif page == 'search'%}
+                Seach Results
+                {% elif page == 'categories'%}
+                All Categories
+                {% elif page == 'category_detail'%}
+                Courses in Category
                 {% else %}
                 xxxxxx
                 {% endif %}
@@ -22,15 +28,21 @@
               <ul class="list-inline list-inline-dashed p">
                 <li class="list-inline-item"><a href="/">Home</a></li>
                 <li class="list-inline-item">
-                  {% if page == 'home'%}
-                  Courses
-                  {% elif page == 'aboutus'%}
-                  About Us
-                  {% elif page == 'course_detail'%}
-                  Learning Enviroment
-                  {% else %}
-                  xxxxxx
-                  {% endif %}
+                {% if page == 'home'%}
+                Course List
+                {% elif page == 'aboutus'%}
+                About Us
+                {% elif page == 'course_detail'%}
+                Learning Enviroment
+                {% elif page == 'search'%}
+                Seach Results
+                {% elif page == 'categories'%}
+                All Categories
+                {% elif page == 'category_detail'%}
+                Courses in Category
+                {% else %}
+                xxxxxx
+                {% endif %}
                 </li>
               </ul>
             </div>
