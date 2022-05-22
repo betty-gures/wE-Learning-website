@@ -17,8 +17,14 @@ class Category(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.title
+    def _str_(self):
+        full_path =[self.title]
+        k= self.parent
+        while k is not None:
+            full_path.append(k.title)
+            k= k.parent
+        return ' >> '.join(full_path[::-1])
+        
 
 class Courses(models.Model):
     STATUS = (

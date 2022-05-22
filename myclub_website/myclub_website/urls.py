@@ -15,6 +15,8 @@ urlpatterns = [
     path('colearning/', include('colearning.urls')),
     path('home/', include('home.urls')),
     path('aboutus/', views.aboutus, name='aboutus'),
+    path('course_detail/<int:id>', views.course_detail, name='course_detail'),
+    #path('category_detail/<int:id>', views.category_detail, name='category_detail'),
 ]
 
 if settings.DEBUG:
