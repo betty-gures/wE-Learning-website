@@ -97,6 +97,10 @@ WSGI_APPLICATION = 'myclub_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+
+
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -105,6 +109,29 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': '',
+    }
+}
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': MYSQL_DATABASE=mysql-db,
+        'USER': MYSQL_USER=mysql-user,
+        'PASSWORD': MYSQL_PASSWORD=mysql-password,
+        'HOST': MYSQL_DATABASE_HOST=db,
+        'PORT': MYSQL_DATABASE_PORT=3306,
+    }
+}
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'pgdb',
+        'PORT': '5432',
     }
 }
 

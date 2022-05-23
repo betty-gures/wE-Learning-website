@@ -12,17 +12,16 @@ services:
         ports:
             - "80:80"
         depends_on:
-            - pgdb
-    pgdb:
-        image: postgres
-        container_name: pgdb
+            - mysql
+    mysql:
+        image: mysql:8.0.17
+        container_name: mysql
         environment:
-            - POSTGRES_DB=postgres
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres
+            MYSQL_ROOT_PASSWORD: mysql-root-password
+            MYSQL_DATABASE: mysql-db
         volumes:
-            - pgdata:/var/lib/postgresql/data/
+            - mysqldata:/var/lib/mysql/data/
         ports:
-            - "5432:5432"
+            - "3308:3306"
 volumes:
-    pgdata:
+    mysqldata:
