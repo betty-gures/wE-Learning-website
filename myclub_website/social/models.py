@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from courses.models import Courses
 
 
 class Post(models.Model):
@@ -17,6 +18,7 @@ class Post(models.Model):
 	likes = models.ManyToManyField(User, blank=True, related_name='likes')
 	dislikes = models.ManyToManyField(User, blank=True, related_name='dislikes')
 	tags = models.ManyToManyField('Tag', blank=True)
+	learning_environment = models.ForeignKey(Courses, on_delete=models.PROTECT)
 
 	def create_tags(self):
 		for word in self.body.split():

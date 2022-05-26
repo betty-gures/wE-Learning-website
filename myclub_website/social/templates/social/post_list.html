@@ -14,6 +14,7 @@
             <form method="POST" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{ form | crispy }}
+				<input type="hidden" name="learn_id" value="{{ course_id }}">
 				<div class="d-grid gap-2">
 					<button class="btn-success mt-3">
 						Submit!

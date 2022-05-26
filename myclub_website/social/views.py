@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.views import View
+
+from courses.models import Courses
 from .models import Post, Comment, UserProfile, Notification, ThreadModel, MessageModel, Image, Tag
 from .forms import PostForm, CommentForm, ThreadForm, MessageForm, ShareForm, ExploreForm
 from django.views.generic.edit import UpdateView, DeleteView
@@ -15,6 +17,7 @@ from itertools import chain
 
 class PostListView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
+        course_id = kwargs.get("course_id")
         logged_in_user = request.user
         posts = Post.objects.filter(
             author__profile__followers__in=[logged_in_user.id]
@@ -24,18 +27,20 @@ class PostListView(LoginRequiredMixin, View):
         )
         results=list(chain(selfposts, posts))
 
-        form = PostForm()
+        form = PostForm(initial={"learning_environment":course_id})
         share_form = ShareForm()
 
         context = {
             'post_list': results,
             'shareform': share_form,
             'form': form,
+            "course_id": course_id,
         }
 
         return render(request, 'social/post_list.html', context)
 
     def post(self, request, *args, **kwargs):
+        course_id = Courses.objects.get(id=kwargs.get("course_id"))
         logged_in_user = request.user
         posts = Post.objects.filter(
             author__profile__followers__in=[logged_in_user.id]

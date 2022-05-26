@@ -1,47 +1,50 @@
 <!-- Page Content-->
-      <section class="section novi-background section-98 section-sm-124">
-        <div class="container">
-          <div class="product product-single">
+<section class="section novi-background section-98 section-sm-124">
+    <div class="container">
+        <div class="product product-single">
             <div class="row">
-              <div class="col-md-6 col-lg-4">
-                <div class="product-image">
-                  <img class="img-fluid product-image-area" src="{{ course.image.url }}" alt="">
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-image">
+                        <img class="img-fluid product-image-area" src="{{ course.image.url }}" alt="">
+                    </div>
                 </div>
-              </div>
-              <div class="col-md-18 col-lg-8 text-left offset-top-41 offset-lg-top-0">
+                <div class="col-md-18 col-lg-8 text-left offset-top-41 offset-lg-top-0">
 
-                <!-- Course Title-->
-                <h1 class="product-title offset-top-0">
-                  <a>{{course.title}}</a>
-                </h1>
-                <!-- Product Rating-->
-                <div class="product-rating offset-top-20">
-                  <span class="novi-icon mdi mdi-star"></span>
-                  <span class="novi-icon mdi mdi-star"></span>
-                  <span class="novi-icon mdi mdi-star"></span>
-                  <span class="novi-icon mdi mdi-star-half"></span>
-                  <span class="novi-icon mdi mdi-star-outline"></span>
-                  <span class="product-review-count text-dark">4 customer reviews</span>
+                    <!-- Course Title-->
+                    <h1 class="product-title offset-top-0">
+                        <a>{{course.title}}</a>
+                        <a class="btn btn-success btn-sm">Co-learn</a>
+                    </h1>
+                    <!-- Product Rating-->
+                    <div class="product-rating offset-top-20">
+                        <span class="novi-icon mdi mdi-star"></span>
+                        <span class="novi-icon mdi mdi-star"></span>
+                        <span class="novi-icon mdi mdi-star"></span>
+                        <span class="novi-icon mdi mdi-star-half"></span>
+                        <span class="novi-icon mdi mdi-star-outline"></span>
+                        <span class="product-review-count text-dark">4 customer reviews</span>
+                    </div>
+                    <div class="card-body">{{course.detail | safe}}</div>
+                    {% if roadmap %}
+
+                    <div class="product-rating offset-top-20 ">
+                        <h3 style="color: #111111 !important;" class="product-title offset-top-20">Roadmap</h3>
+                        <ul style="color: #111111 !important;">
+                            {% for rs in roadmap %}
+                            <li>{{ rs.title }}</li>
+
+                            {% endfor %}
+                            <ul>
+
+
+                    </div>
+                    {% endif %}
+
                 </div>
-                <div class="card-body">{{course.detail | safe}}</div>
-                <div class="product-rating offset-top-20 ">
-                  <h3 style="color: #111111 !important;" class="product-title offset-top-20">Roadmap</h3>
-                <ul style="color: #111111 !important;">
-      {% for rs in roadmap %}
-      <li>{{ rs.title }}</li>
-          
-{% endfor %}
-<ul>
-
-
-
-                </div>
-
-              </div>
             </div>
 
 
         </div>
-      </section>
+</section>
 
       

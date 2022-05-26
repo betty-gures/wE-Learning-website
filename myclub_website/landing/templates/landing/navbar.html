@@ -7,11 +7,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" 
-    {% if user.is_authenticated %}
-    href="{% url 'post-list' %}"
-    {% else %}
-    href="{% url 'index' %}"
-    {% endif %}>
+
+    href="{% url 'index' %}">
+
 
     <i class="fas fa-comment"></i> wE-Learning</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
