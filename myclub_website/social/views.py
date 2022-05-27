@@ -17,41 +17,44 @@ from itertools import chain
 
 class PostListView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        course_id = kwargs.get("course_id")
+        course = Courses.objects.get(id=kwargs.get("course_id"))
         logged_in_user = request.user
+        # posts = Post.objects.filter(
+        #     author__profile__followers__in=[logged_in_user.id]
+        # )
         posts = Post.objects.filter(
-            author__profile__followers__in=[logged_in_user.id]
+            learning_environment_id = course.id
         )
         selfposts = Post.objects.filter(
             author=logged_in_user.id
         )
         results=list(chain(selfposts, posts))
 
-        form = PostForm(initial={"learning_environment":course_id})
+        form = PostForm(initial={"learning_environment":course.id})
         share_form = ShareForm()
 
         context = {
             'post_list': results,
             'shareform': share_form,
             'form': form,
-            "course_id": course_id,
+            "course": course,
         }
 
         return render(request, 'social/post_list.html', context)
 
     def post(self, request, *args, **kwargs):
-        course_id = Courses.objects.get(id=kwargs.get("course_id"))
+        course = Courses.objects.get(id=kwargs.get("course_id"))
         logged_in_user = request.user
-        posts = Post.objects.filter(
-            author__profile__followers__in=[logged_in_user.id]
-        )
+
         form = PostForm(request.POST, request.FILES)
+
         files = request.FILES.getlist('image')
         share_form = ShareForm()
 
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.author = request.user
+            new_post.learning_environment = course
             new_post.save()
 
             new_post.create_tags()
@@ -63,13 +66,18 @@ class PostListView(LoginRequiredMixin, View):
 
             new_post.save()
 
+        posts = Post.objects.filter(
+            author__profile__followers__in=[logged_in_user.id]
+        )
+
         context = {
             'post_list': posts,
             'shareform': share_form,
             'form': form,
         }
 
-        return render(request, 'social/post_list.html', context)
+        return HttpResponseRedirect(f"/social/{course.id}")
+        # return render(request, 'social/post_list.html', context)
 
 class PostDetailView(LoginRequiredMixin, View):
     def get(self, request, pk, *args, **kwargs):

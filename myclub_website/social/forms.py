@@ -3,11 +3,11 @@ from .models import Post, Comment, MessageModel
 
 
 class PostForm(forms.ModelForm):
-    learning_environment = forms.IntegerField(
-        widget=forms.NumberInput(
-            attrs={"type": "hidden"}
-        )
-    )
+    # learning_environment = forms.IntegerField(
+    #     widget=forms.NumberInput(
+    #         attrs={"type": "hidden"}
+    #     )
+    # )
     body = forms.CharField(
         label='',
         widget=forms.Textarea(attrs={
@@ -24,7 +24,8 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['body', 'learning_environment']
+        fields = ['body']
+        exclude = ('learning_environment',)
 
 
 class CommentForm(forms.ModelForm):

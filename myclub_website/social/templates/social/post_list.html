@@ -1,118 +1,129 @@
 {% extends 'landing/base.html' %}
 {% load crispy_forms_tags %}
 
+
 {% block content %}
 <div class="container">
-	<div class="row justify-content-center mt-3">
-		<div class="col-md-5 col-sm-12 border-bottom">
-			<h5>Add a Post!</h5>
-		</div>
-	</div>
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-5 col-sm-12 border-bottom">
+            <h5>
+                <h3>
+                    <span class="text-success"> {{course.title | capfirst}} Colearning Page</span>
+                </h3> You may add a post and share knowledge!
+            </h5>
+        </div>
+    </div>
 
-	<div class="row justify-content-center mt-3 mb-5">
-		<div class="col-md-5 col-sm-12 border-bottom">
+    <div class="row justify-content-center mt-3 mb-5">
+        <div class="col-md-5 col-sm-12 border-bottom">
             <form method="POST" enctype="multipart/form-data">
-				{% csrf_token %}
-				{{ form | crispy }}
-				<input type="hidden" name="learn_id" value="{{ course_id }}">
-				<div class="d-grid gap-2">
-					<button class="btn-success mt-3">
-						Submit!
-					</button>
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input type="hidden" name="learn_id" value="{{ course.id }}">
+                <div class="d-grid gap-2">
+                    <button class="btn-success mt-3">
+                        Submit!
+                    </button>
 
-				</div>
-				
-			</form>
-		</div>
-	</div>
+                </div>
 
-
-	{% for post in post_list %}
-	<div class="row justify-content-center mt-3">
-		<div class="col-md-5 col-sm-12 border-bottom position-relative">
-			{% if post.shared_user %}
-			<div>
-				<a href="{% url 'profile' post.shared_user.profile.pk %}">
-                  		<img class="round-circle post-img" height="30" width="30" src="{{ post.shared_user.profile.picture.url }}" />
-                		</a>
-                		<p class="post-text">
-                    		<a class="text-primary post-link" href="{% url 'profile' post.shared_user.profile.pk %}">@{{ post.shared_user }}</a> shared a post on {{ post.shared_on }}
-                		</p>
-            	</div>
-            	{% else %}
-            	<div>
-                		<a href="{% url 'profile' post.author.profile.pk %}">
-                    		<img class="round-circle post-img" height="30" width="30" src="{{ post.author.profile.picture.url }}" />
-                		</a>
-                		<p class="post-text">
-                   		<a class="text-primary post-link" href="{% url 'profile' post.author.profile.pk %}">@{{ post.author }}</a> {{ post.created_on }}
-                    		<span onclick="shareToggle('{{ post.pk }}')"><i class="far fa-share-square share-btn"></i></span>
-                		</p>
-            	</div>
-            	{% endif %}
-            	<form method="POST" action="{% url 'share-post' post.pk %}" class="d-none" id="{{ post.pk }}">
-                		{% csrf_token %}
-                		{{ shareform | crispy }}
-                		<div class="d-grid gap-2">
-                    		<button class="btn btn-success mt-3">share the post</button>
-                		</div>
-            	</form>
-            	{% if post.shared_body %}
-            	<div class="position-relative border-bottom mb-3 body">
-                		<p>{{ post.shared_body }}</p>
-            	</div>
-            	<div class="shared-post">
-				<a href="{% url 'profile' post.author.profile.pk %}">
-					<img class="rounded-circle post-img" height="30" width="30" src="{{ post.author.profile.picture.url }}"/>
-				</a>
-
-				<p class="post-text">
-					<a class="text-primary post-link" href="{% url 'profile' post.author.profile.pk %}">@{{ post.author }} </a> {{ post.created_on }}
-				</p>
-			</div>
-			{% endif %}
-            	<div class="shared-post position-relative pt-3">
-            	{% if post.image.count > 0 %}
-                  	<div class="row">
-                    		{% for img in post.image.all %}
-                       			<div class="col-md-4 col-xs-12">
-                            			<img src="{{ img.image.url }}" class="post-image" />
-                       		 	</div>
-                    		{% endfor %}
-                  	</div>
+            </form>
+        </div>
+    </div>
 
 
-                	{% endif %}
-                	<div class="body">
-                  	<p>{{ post.body }}</p>
-                	</div>
-                	<a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
+    {% for post in post_list %}
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-5 col-sm-12 border-bottom position-relative">
+            {% if post.shared_user %}
+            <div>
+                <a href="{% url 'profile' post.shared_user.profile.pk %}">
+                    <img class="round-circle post-img" height="30" width="30"
+                         src="{{ post.shared_user.profile.picture.url }}"/>
+                </a>
+                <p class="post-text">
+                    <a class="text-primary post-link" href="{% url 'profile' post.shared_user.profile.pk %}">@{{
+                        post.shared_user }}</a> shared a post on {{ post.shared_on }}
+                </p>
             </div>
-			<!-- we are passing the pk (primary key) of each post. (Every django object has its own primary key) (views.py postdetailview- details keep the same pk as the parent post)-->
-			<div class="d-flex flex-row">
-				<form method="POST" action="{% url 'like' post.pk %}">
-					{% csrf_token %}
-					<input type="hidden" name="next" value="{{ request.path }}">
-					<button class="remove-default-btn" type="submit">
-						<i class="far fa-thumbs-up">
-							<span> {{ post.likes.all.count }} </span>
-						</i>
-					</button>
-				</form>
+            {% else %}
+            <div>
+                <a href="{% url 'profile' post.author.profile.pk %}">
+                    <img class="round-circle post-img" height="30" width="30"
+                         src="{{ post.author.profile.picture.url }}"/>
+                </a>
+                <p class="post-text">
+                    <a class="text-primary post-link" href="{% url 'profile' post.author.profile.pk %}">@{{ post.author
+                        }}</a> {{ post.created_on }}
+                    <span onclick="shareToggle('{{ post.pk }}')"><i class="far fa-share-square share-btn"></i></span>
+                </p>
+            </div>
+            {% endif %}
+            <form method="POST" action="{% url 'share-post' post.pk %}" class="d-none" id="{{ post.pk }}">
+                {% csrf_token %}
+                {{ shareform | crispy }}
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success mt-3">share the post</button>
+                </div>
+            </form>
+            {% if post.shared_body %}
+            <div class="position-relative border-bottom mb-3 body">
+                <p>{{ post.shared_body }}</p>
+            </div>
+            <div class="shared-post">
+                <a href="{% url 'profile' post.author.profile.pk %}">
+                    <img class="rounded-circle post-img" height="30" width="30"
+                         src="{{ post.author.profile.picture.url }}"/>
+                </a>
 
-				<form method="POST" action="{% url 'dislike' post.pk %}">
-					{% csrf_token %}
-					<input type="hidden" name="next" value="{{ request.path }}">
-					<button class="remove-default-btn" type="submit">
-						<i class="far fa-thumbs-down"> 
-							<span> {{ post.dislikes.all.count }} </span>
-						</i>
-					</button>
-				</form>
+                <p class="post-text">
+                    <a class="text-primary post-link" href="{% url 'profile' post.author.profile.pk %}">@{{ post.author
+                        }} </a> {{ post.created_on }}
+                </p>
+            </div>
+            {% endif %}
+            <div class="shared-post position-relative pt-3">
+                {% if post.image.count > 0 %}
+                <div class="row">
+                    {% for img in post.image.all %}
+                    <div class="col-md-4 col-xs-12">
+                        <img src="{{ img.image.url }}" class="post-image"/>
+                    </div>
+                    {% endfor %}
+                </div>
 
-			</div>
-		</div>
-	</div>
-	{% endfor %}
+
+                {% endif %}
+                <div class="body">
+                    <p>{{ post.body }}</p>
+                </div>
+                <a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
+            </div>
+            <!-- we are passing the pk (primary key) of each post. (Every django object has its own primary key) (views.py postdetailview- details keep the same pk as the parent post)-->
+            <div class="d-flex flex-row">
+                <form method="POST" action="{% url 'like' post.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button class="remove-default-btn" type="submit">
+                        <i class="far fa-thumbs-up">
+                            <span> {{ post.likes.all.count }} </span>
+                        </i>
+                    </button>
+                </form>
+
+                <form method="POST" action="{% url 'dislike' post.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button class="remove-default-btn" type="submit">
+                        <i class="far fa-thumbs-down">
+                            <span> {{ post.dislikes.all.count }} </span>
+                        </i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endblock content %}
