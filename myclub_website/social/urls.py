@@ -1,10 +1,14 @@
 from django.urls import path
-from .views import PostListView, PostDetailView, PostEditView, PostDeleteView, CommentDeleteView, ProfileView, ProfileEditView, AddFollower, RemoveFollower, AddLike, AddDislike, UserSearch, ListFollowers, AddCommentLike, AddCommentDislike, CommentReplyView, PostNotification, FollowNotification, RemoveNotification, CreateThread, ListThreads, ThreadView, CreateMessage, ThreadNotification, SharedPostView, Explore
+from .views import PostListView, PostDetailView, PostEditView, PostDeleteView, CommentDeleteView, ProfileView, \
+	ProfileEditView, AddFollower, RemoveFollower, AddLike, AddDislike, UserSearch, ListFollowers, AddCommentLike, \
+	AddCommentDislike, CommentReplyView, PostNotification, FollowNotification, RemoveNotification, CreateThread, \
+	ListThreads, ThreadView, CreateMessage, ThreadNotification, SharedPostView, Explore
+from social import views
 
-
+app_name = 'social'
 
 urlpatterns = [
-	path('<int:course_id>/', PostListView.as_view(), name='post-list'),
+	path('<int:course_id>/', views.PostListView.as_view(), name='post-list'),
 	path('post/<int:pk>/', PostDetailView.as_view(),name='post-detail'),
 	path('post/edit/<int:pk>/', PostEditView.as_view(),name='post-edit'),
 	path('post/delete/<int:pk>/', PostDeleteView.as_view(),name='post-delete'),

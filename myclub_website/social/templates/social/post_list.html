@@ -34,16 +34,17 @@
 
     {% for post in post_list %}
     <div class="row justify-content-center mt-3">
+
         <div class="col-md-5 col-sm-12 border-bottom position-relative">
-            {% if post.shared_user %}
+            {% if post.author %}
             <div>
-                <a href="{% url 'profile' post.shared_user.profile.pk %}">
+                <a href="{% url 'social:profile' post.author.profile.pk %}">
                     <img class="round-circle post-img" height="30" width="30"
                          src="{{ post.shared_user.profile.picture.url }}"/>
                 </a>
                 <p class="post-text">
-                    <a class="text-primary post-link" href="{% url 'profile' post.shared_user.profile.pk %}">@{{
-                        post.shared_user }}</a> shared a post on {{ post.shared_on }}
+                    <a class="text-primary post-link" href="{% url 'social:profile' post.author.pk %}">
+                        @ {{ post.author }}</a> shared a post on {{ post.shared_on }}
                 </p>
             </div>
             {% else %}
@@ -59,7 +60,7 @@
                 </p>
             </div>
             {% endif %}
-            <form method="POST" action="{% url 'share-post' post.pk %}" class="d-none" id="{{ post.pk }}">
+            <form method="POST" action="{% url 'social:share-post' post.pk %}" class="d-none" id="{{ post.pk }}">
                 {% csrf_token %}
                 {{ shareform | crispy }}
                 <div class="d-grid gap-2">
@@ -97,11 +98,11 @@
                 <div class="body">
                     <p>{{ post.body }}</p>
                 </div>
-                <a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
+                <a href="{% url 'social:post-detail' post.pk %}" class="stretched-link"></a>
             </div>
             <!-- we are passing the pk (primary key) of each post. (Every django object has its own primary key) (views.py postdetailview- details keep the same pk as the parent post)-->
             <div class="d-flex flex-row">
-                <form method="POST" action="{% url 'like' post.pk %}">
+                <form method="POST" action="{% url 'social:like' post.pk %}">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
                     <button class="remove-default-btn" type="submit">
@@ -111,7 +112,7 @@
                     </button>
                 </form>
 
-                <form method="POST" action="{% url 'dislike' post.pk %}">
+                <form method="POST" action="{% url 'social:dislike' post.pk %}">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
                     <button class="remove-default-btn" type="submit">

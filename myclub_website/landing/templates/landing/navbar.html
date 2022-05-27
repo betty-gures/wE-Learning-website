@@ -15,12 +15,12 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li>
-          <a class="inbox-icon" href="{% url 'explore' %}">
+          <a class="inbox-icon" href="{% url 'social:explore' %}">
             <i class="far fa-compass"></i>
           </a>
         </li>
       </ul>
-      <form class="d-flex" method="GET" action="{% url 'profile-search' %}">
+      <form class="d-flex" method="GET" action="{% url 'social:profile-search' %}">
       <div class="input-group">
       <span class="input-group-text" id="basic-addon1">@</span>
       <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="query" value="{{ request.GET.query }}">
@@ -35,12 +35,12 @@
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" role="button" aria-expended="false"><i class="fas fa-user"></i></a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'profile' request.user.profile.pk %}">Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'social:profile' request.user.profile.pk %}">Profile</a></li>
             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
           </ul>
         </div>
         <div class="nav-item inbox-icon-container">
-          <a href="{% url 'inbox' %}" class="inbox-icon"><i class="far fa-paper-plane"></i></a>
+          <a href="{% url 'social:inbox' %}" class="inbox-icon"><i class="far fa-paper-plane"></i></a>
         </div>
         <div class="nav-item">
           {% show_notifications %}
