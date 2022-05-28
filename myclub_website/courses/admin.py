@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Courses, Roadmap
+from .models import Category, Courses, Roadmap, Glossary
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'status']
@@ -17,3 +17,8 @@ class RoadmapAdmin(admin.ModelAdmin):
     list_display = ['title', 'course', 'detail', 'warning']
     ordering = ['order_number','id']
 admin.site.register(Roadmap,RoadmapAdmin)
+
+class GlossaryAdmin(admin.ModelAdmin):
+    list_display = ['term']
+    ordering = ['id']
+admin.site.register(Glossary,GlossaryAdmin)

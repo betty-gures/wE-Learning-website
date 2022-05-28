@@ -61,3 +61,15 @@ class Roadmap(models.Model):
 
     def __str__(self):
         return self.title
+
+class Glossary(models.Model):
+    STATUS = (
+        ('True', 'Evet'),
+        ('False', 'Hayır'),
+    )
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE) #relation with Category table
+    term = models.CharField(max_length=255)
+    detail = RichTextUploadingField()
+
+    def __str__(self):
+        return self.term
