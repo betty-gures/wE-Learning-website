@@ -5,8 +5,8 @@
 			{% if notification.post %}
 				{% if notification.notification_type == 1 %}
 				<div class="dropdown-item-parent">
-					<a href="{% url 'post-notification' notification.pk notification.post.pk %}">@{{ notification.from_user }} liked your post</a>
-					<span class="dropdown-item-close" onclick="removeNotification(`{% url 'notification-delete' notification.pk %}`, `{{ request.path }}`)">&times;</span>
+					<a href="{% url 'social:post-notification' notification.pk notification.post.pk %}">@{{ notification.from_user }} liked your post</a>
+					<span class="dropdown-item-close" onclick="removeNotification(`{% url 'social:notification-delete' notification.pk %}`, `{{ request.path }}`)">&times;</span>
 				</div>
 				{% elif notification.notification_type == 2 %}
 				<div class="dropdown-item-parent">

@@ -53,7 +53,7 @@
 
 	<div class="row">
 		<div class="card col-md-12 p-3 shadow-sm">
-			<form method="POST" action="{% url 'create-message' thread.pk %}" enctype="multipart/form-data">
+			<form method="POST" action="{% url 'social:create-message' thread.pk %}" enctype="multipart/form-data">
 				{% csrf_token %}
 				{{ form | crispy }}
 
