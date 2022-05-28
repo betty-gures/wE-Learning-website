@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Courses, Roadmap, Glossary
+from .models import Category, Courses, Roadmap, Glossary, Quiz, QuizQuestions
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'status']
@@ -22,3 +22,13 @@ class GlossaryAdmin(admin.ModelAdmin):
     list_display = ['term']
     ordering = ['id']
 admin.site.register(Glossary,GlossaryAdmin)
+
+class QuizAdmin(admin.ModelAdmin):
+    list_display = ['course','quiz_name','quiz_level']
+    ordering = ['id']
+admin.site.register(Quiz,QuizAdmin)
+
+class QuizQuestionAdmin(admin.ModelAdmin):
+    list_display = ['id','quiz','rightAnswer']
+    ordering = ['quiz','id']
+admin.site.register(QuizQuestions,QuizQuestionAdmin)

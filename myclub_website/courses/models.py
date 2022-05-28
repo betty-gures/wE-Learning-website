@@ -63,13 +63,38 @@ class Roadmap(models.Model):
         return self.title
 
 class Glossary(models.Model):
-    STATUS = (
-        ('True', 'Evet'),
-        ('False', 'Hayır'),
-    )
     course = models.ForeignKey(Courses, on_delete=models.CASCADE) #relation with Category table
     term = models.CharField(max_length=255)
     detail = RichTextUploadingField()
 
     def __str__(self):
         return self.term
+
+
+class Quiz(models.Model):
+    course = models.ForeignKey(Courses, on_delete=models.CASCADE) #relation with course/learning environment
+    quiz_name = models.CharField(max_length=255)
+    quiz_level = models.TextField(blank=True,)
+
+
+    def __str__(self):
+        return self.quiz_name
+
+class QuizQuestions(models.Model):
+    RIGHTANSWER = (
+        ('A', 'A'),
+        ('B', 'B'),
+        ('C', 'C'),
+        ('D', 'D'),
+    )
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE) #relation with Quiz
+    question = RichTextUploadingField()
+    choiceA = models.CharField(max_length=255)
+    choiceB = models.CharField(max_length=255)
+    choiceC = models.CharField(max_length=255)
+    choiceD = models.CharField(max_length=255)
+    rightAnswer = models.CharField(max_length=10,choices=RIGHTANSWER)
+
+    def __str__(self):
+        return self.rightAnswer
+
