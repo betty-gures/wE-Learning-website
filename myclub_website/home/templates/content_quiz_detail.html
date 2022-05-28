@@ -21,27 +21,54 @@
 
                                     <div class="form-group group-sm">
                 <div class="custom-control custom-radio d-inline-block">
-                  <input class="custom-control-input" id="choiceA-{{rs.id}}" name="input-group-radio" value="A" type="radio">
-                  <label class="custom-control-label" for="choiceA-{{rs.id}}">{{rs.choiceA}}</label>
+                  <input class="custom-control-input" id="choiceA-{{rs.id}}" name="choice-{{rs.id}}" value="A" type="radio">
+                  <label class="custom-control-label" for="choiceA-{{rs.id}}">A. {{rs.choiceA}}</label>
                 </div>
                                         <br>
                 <div class="custom-control custom-radio d-inline-block">
-                  <input class="custom-control-input" id="choiceB-{{rs.id}}" name="input-group-radio" value="B" type="radio">
-                  <label class="custom-control-label" for="choiceB-{{rs.id}}">{{rs.choiceB}}</label>
+                  <input class="custom-control-input" id="choiceB-{{rs.id}}" name="choice-{{rs.id}}" value="B" type="radio">
+                  <label class="custom-control-label" for="choiceB-{{rs.id}}">B. {{rs.choiceB}}</label>
                 </div>
                                         <br>
                                         <div class="custom-control custom-radio d-inline-block">
 
-                  <input class="custom-control-input" id="choiceC-{{rs.id}}" name="input-group-radio" value="C" type="radio">
-                  <label class="custom-control-label" for="choiceC-{{rs.id}}">{{rs.choiceC}}</label>
+                  <input class="custom-control-input" id="choiceC-{{rs.id}}" name="choice-{{rs.id}}" value="C" type="radio">
+                  <label class="custom-control-label" for="choiceC-{{rs.id}}">C. {{rs.choiceC}}</label>
                 </div>
                                         <br>
                 <div class="custom-control custom-radio d-inline-block">
-                  <input class="custom-control-input" id="choiceD-{{rs.id}}" name="input-group-radio" value="D" type="radio">
-                  <label class="custom-control-label" for="choiceD-{{rs.id}}">{{rs.choiceD}}</label>
+                  <input class="custom-control-input" id="choiceD-{{rs.id}}" name="choice-{{rs.id}}" value="D" type="radio">
+                  <label class="custom-control-label" for="choiceD-{{rs.id}}">D. {{rs.choiceD}}</label>
                 </div>
                                         <br>
               </div>
+
+
+
+
+                                    <div class="row justify-content-md-center text-left">
+            <div class="col-md-8 col-lg-6">
+              <!-- Bootstrap Accordion-->
+              <div class="offset-top-0" role="tablist" aria-multiselectable="false" id="accordion-{{rs.id}}">
+                  <div class="card card-classic">
+                      <a class="card-header collapsed" href="#" data-toggle="collapse"
+                         data-target="#accordion-{{rs.id}}--card-1-content"
+                         id="accordion-{{rs.id}}--card-1-header"
+                         aria-expanded="false"
+                         aria-controls="accordion-{{rs.id}}--card-1-content">
+                          Click to see right answer</a>
+                  <div class="collapse" id="accordion-{{rs.id}}--card-1-content" aria-labelledby="accordion-{{rs.id}}--card-1-header" data-parent="#accordion-{{rs.id}}">
+                    <div class="card-body">{{rs.rightAnswer}}</div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+
+
+
+
                                 </li>
                                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                             {% endfor %}

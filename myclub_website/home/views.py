@@ -73,6 +73,10 @@ def quiz_detail_list(request, id):
                'quiz':quiz}
     return render(request, 'quiz_detail.html', context)
 
+def home_page(request):
+    context = {'page': 'home_page'}
+    return render(request, 'home_page.html', context)
+
 # Create your views here.
 # def index(request):
 #   text="Merhaba burası courses ana sayfası "

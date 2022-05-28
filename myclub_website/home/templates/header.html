@@ -39,7 +39,19 @@
                       <li><a class="new" href="/categories"><span>CATEGORIES</span></a></li>
                       <li><a class="new" href="/courses"><span>LEARNING ENVIRONMENTS</span></a></li>
 
-                      <li><a class="new" href="login.html"><span>LOGIN</span></a> | <a class="new" href="sign-in.html"><span>SIGN UP</span></a></li>
+                      <li>
+                        {% if user.id is not None %}
+                        <a class="new" href="/login"><span>LOGIN</span></a>
+                        {% else %}
+                        <a class="new" href="/profile/"><span>{{user.first_name}}</span></a>
+                        {% endif %}
+
+
+
+
+
+                        | <a class="new" href="sign-in.html"><span>SIGN UP</span></a></li>
+
                     </ul>
                   </div>
                 </div>

@@ -1,0 +1,34 @@
+{% load static %}
+        <div class="swiper-container swiper-slider"
+             data-loop="true"
+             data-autoplay="true"
+             data-height="100vh"
+             data-dragable="false"
+             data-min-height="480px">
+          <div class="swiper-wrapper text-left">
+            <div class="swiper-slide" id="page-loader"
+                 data-slide-bg="{% static 'images/main_image.jpg' %}"
+                 data-preview-bg="images/main_image.jpg">
+              <div class="swiper-caption swiper-parallax">
+                <div class="swiper-slide-caption">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xl-18 offset-top-110">
+                          <br><br><br><br>
+                        <div class="group group-xl offset-top-20 offset-sm-top-50">
+                          <a class="btn btn-default btn-lg btn-anis-effect"
+                             href="/courses/"
+                             target="_blank"
+                             data-caption-animate="fadeIn"
+                             data-caption-delay="1200">
+                            <span class="btn-text">Explore Learning Environments</span>
+                          </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>

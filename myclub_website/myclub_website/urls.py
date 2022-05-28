@@ -6,14 +6,14 @@ from home import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('home.urls')),
+    path('',views.home_page, name='home_page'),
     path('landing/',include('landing.urls')),
     path('accounts/', include('allauth.urls')),
     path('social/', include('social.urls'), name='social'),
-    path('courses/', include('courses.urls')),
+    path('courses/', include('home.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('colearning/', include('colearning.urls')),
-    path('home/', include('home.urls')),
+    path('home/', views.home_page, name='home_page'),
     path('aboutus/', views.aboutus, name='aboutus'),
     path('course_detail/<int:id>', views.course_detail, name='course_detail'),
     #path('category_detail/<int:id>', views.category_detail, name='category_detail'),
