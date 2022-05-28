@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from courses.models import Courses, Category, Roadmap
+from courses.models import Courses, Category, Roadmap, Glossary
 from home.forms import SearchForm
 
 
@@ -48,6 +48,14 @@ def category_detail(request, id):
     context = {'page': 'category_detail',
                'courses': courses}
     return render(request, 'category_detail.html', context)
+
+def glossary_list(request, id):
+    course = Courses.objects.get(pk=id)
+    glossarydata = Glossary.objects.filter(course_id=id)
+    context = {'page': 'glossary_list',
+               'glossarydata': glossarydata,
+               'course':course}
+    return render(request, 'glossary.html', context)
 
 # Create your views here.
 # def index(request):

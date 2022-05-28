@@ -19,6 +19,7 @@ urlpatterns = [
     #path('category_detail/<int:id>', views.category_detail, name='category_detail'),
     path('categories/', views.categories, name='categories'),
     path('category_detail/<int:id>', views.category_detail, name='category_detail'),
+    path('glossary/<int:id>', views.glossary_list, name='glossary_list'),
     path('search/', views.course_search, name='course_search'),
 ]
 

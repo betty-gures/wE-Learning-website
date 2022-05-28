@@ -1,0 +1,25 @@
+
+
+
+ {% load static %}
+ <!-- Boxed Accordion-->
+      <section class="section novi-background section-50">
+        <div class="container">
+          <h1>Glossary of {{ course.title  }} </h1>
+          <hr class="divider bg-mantis">
+          <div class="row justify-content-md-center offset-top-66 text-left">
+            <div class="col-md-12 col-lg-6">
+              <!-- Bootstrap Accordion-->
+              <div class="accordion-boxed offset-top-0" role="tablist" aria-multiselectable="true" id="accordion-2">
+{% for rs in glossarydata %}
+          <div class="card card-boxed"><a class="card-header" href="#" data-toggle="collapse" data-target="#accordion-2--card-{{ rs.id }}" aria-expanded="false" aria-controls="accordion-2--card-{{ rs.id }}">{{ rs.term }}</a>
+                  <div class="collapse show" id="accordion-2--card-{{ rs.id }}" aria-labelledby="headingOne" data-parent="#accordion-2">
+                    <div class="card-body"> {{ rs.detail | safe }}</div>
+                  </div>
+                </div>
+{% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
