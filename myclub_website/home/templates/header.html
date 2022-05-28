@@ -34,10 +34,10 @@
                     </div>
                     <!-- RD Navbar Nav-->
                     <ul class="rd-navbar-nav">
-                      <li {% if page == 'home'%}class="active"{% endif %}><a href="/"><span>Home</span></a></li>
+                      <li {% if page == 'home_page'%}class="active"{% endif %}><a href="/"><span>Home</span></a></li>
                       <li {% if page == 'aboutus'%}class="active"{% endif %}><a class="new" href="/aboutus"><span>ABOUT</span></a></li>
-                      <li><a class="new" href="/categories"><span>CATEGORIES</span></a></li>
-                      <li><a class="new" href="/courses"><span>LEARNING ENVIRONMENTS</span></a></li>
+                      <li {% if page == 'categories'%}class="active"{% endif %}><a class="new" href="/categories"><span>CATEGORIES</span></a></li>
+                      <li {% if page == 'home'%} class="active"{% endif %}><a class="new" href="/courses"><span>LEARNING ENVIRONMENTS</span></a></li>
 
                       <li>
                         {% if user.id is not None %}
