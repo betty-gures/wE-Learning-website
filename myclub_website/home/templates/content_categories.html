@@ -3,22 +3,24 @@
 
 <section class="section novi-background section-98 section-md-110">
     <div class="container">
-        <div class="row justify-content-sm-center text-left">
+       <h1>Categories </h1>
+          <hr class="divider bg-mantis">
+          <div class="row justify-content-md-center offset-top-66 text-left">
+            <div class="col-md-12 col-lg-6">
             <ul>
                 {% for rs in categoriesdata %}
-                <div class="col-sm-4">
-                    <li class="post-meta inset-left-20">
-                        <span class="novi-icon icon icon-xxs text-middle mdi mdi-file-document"></span>
-                        <span class="text-middle"><a href="/category_detail/{{rs.parent.id}}">{{ rs.parent.title }}</a></span>
-                        <ul>
-                            {% for sub_category in parents %}
+
+                {% for sub_category in parents %}
                             {% if sub_category.parent.id == rs.id %}
-                            <li>{{sub_category.title}}</li>
-                            {% endif %}
-                            {% endfor %}
-                        </ul>
-                    </li>
-                </div>
+                 <li class="post-meta inset-left-20">
+                                <span class="novi-icon icon icon-xxs text-middle mdi mdi-file-document"></span>
+                                <a href="/category_detail/{{sub_category.id}}">{{sub_category.title}}</a> (<a href="/category_detail/{{rs.id}}">{{rs.title}}</a>)
+                            </li>
+
+                {% endif %}
+                {% endfor %}
+
+
                 {% endfor %}
             </ul>
         </div>

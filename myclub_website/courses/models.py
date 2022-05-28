@@ -88,7 +88,7 @@ class QuizQuestions(models.Model):
         ('D', 'D'),
     )
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE) #relation with Quiz
-    question = RichTextUploadingField()
+    question = models.TextField(blank=True,)
     choiceA = models.CharField(max_length=255)
     choiceB = models.CharField(max_length=255)
     choiceC = models.CharField(max_length=255)

@@ -1,0 +1,56 @@
+{% load static %}
+<br>
+
+
+<section class="section novi-background section-66 section-xl-110">
+    <div class="container">
+        <h1>Quiz {{ quiz.quiz_name  }} </h1>
+          <hr class="divider bg-mantis">
+          <div class="row justify-content-md-center offset-top-66 text-left">
+            <div class="col-md-12 col-lg-6">
+
+
+
+
+                            <ul class="list-index list-unstyled row justify-content-center offset-top-50 offset-lg-top-66">
+                            {% for rs in quizdetailsdata %}
+                                <li class="container-fluid">
+                                    <span class="list-index-counter icon novi-icon icon-lg icon-outlined icon-darker-filled">
+                                    </span>
+                                    {{rs.question | safe}}
+
+                                    <div class="form-group group-sm">
+                <div class="custom-control custom-radio d-inline-block">
+                  <input class="custom-control-input" id="choiceA-{{rs.id}}" name="input-group-radio" value="A" type="radio">
+                  <label class="custom-control-label" for="choiceA-{{rs.id}}">{{rs.choiceA}}</label>
+                </div>
+                                        <br>
+                <div class="custom-control custom-radio d-inline-block">
+                  <input class="custom-control-input" id="choiceB-{{rs.id}}" name="input-group-radio" value="B" type="radio">
+                  <label class="custom-control-label" for="choiceB-{{rs.id}}">{{rs.choiceB}}</label>
+                </div>
+                                        <br>
+                                        <div class="custom-control custom-radio d-inline-block">
+
+                  <input class="custom-control-input" id="choiceC-{{rs.id}}" name="input-group-radio" value="C" type="radio">
+                  <label class="custom-control-label" for="choiceC-{{rs.id}}">{{rs.choiceC}}</label>
+                </div>
+                                        <br>
+                <div class="custom-control custom-radio d-inline-block">
+                  <input class="custom-control-input" id="choiceD-{{rs.id}}" name="input-group-radio" value="D" type="radio">
+                  <label class="custom-control-label" for="choiceD-{{rs.id}}">{{rs.choiceD}}</label>
+                </div>
+                                        <br>
+              </div>
+                                </li>
+                                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                            {% endfor %}
+                            </ul>
+
+
+
+
+        </div>
+    </div>
+    </div>
+</section>

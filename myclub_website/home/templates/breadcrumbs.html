@@ -17,6 +17,10 @@
                 All Categories
                 {% elif page == 'glossary_list'%}
                 Glossary
+                {% elif page == 'quiz_list'%}
+                All Quizes
+                {% elif page == 'quiz_list'%}
+                Quiz
                 {% elif page == 'category_detail'%}
                 Courses in Category
                 {% else %}
@@ -30,6 +34,9 @@
               <ul class="list-inline list-inline-dashed p">
                 <li class="list-inline-item"><a href="/">Home</a></li>
                 {% if page == 'glossary_list'%}
+                <li class="list-inline-item"><a href="/course_detail/{{course.id}}">{{course.title}}</a></li>
+                {% endif %}
+                {% if page == 'quiz_list'%}
                 <li class="list-inline-item"><a href="/course_detail/{{course.id}}">{{course.title}}</a></li>
                 {% endif %}
                 <li class="list-inline-item">
@@ -47,6 +54,8 @@
                 Courses in Category
                 {% elif page == 'glossary_list'%}
                 Glossary
+                {% elif page == 'quiz_list'%}
+                Quiz Page
                 {% else %}
                 xxxxxx
                 {% endif %}
