@@ -40,8 +40,8 @@
             {% if post.author %}
             <div>
                 <a href="{% url 'social:profile' post.author.profile.pk %}">
-                    <img class="round-circle post-img" height="30" width="30"
-                         src="{{ post.shared_user.profile.picture.url }}"/>
+                    <img class="rounded-circle post-img" height="30" width="30"
+                         src="{{ post.author.profile.picture.url }}"/>
                 </a>
                 <p class="post-text">
                     <a class="text-primary post-link" href="{% url 'social:profile' post.author.pk %}">

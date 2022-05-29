@@ -8,7 +8,9 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category,CategoryAdmin)
 
 class CoursesAdmin(admin.ModelAdmin):
-    list_display = ['title', 'status', 'category', 'create_at']
+    list_display = ['title', 'status',
+                    'category',
+                    'create_at']
     list_filter = ['status']
     ordering = ['category', 'title']
 admin.site.register(Courses,CoursesAdmin)

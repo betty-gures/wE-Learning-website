@@ -148,7 +148,7 @@ class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_success_url(self):
         pk = self.kwargs['pk']
-        return reverse_lazy('post-detail', kwargs={'pk': pk})
+        return reverse_lazy('social:post-detail', kwargs={'post_id': pk})
 
     def test_func(self):
         post = self.get_object()
@@ -567,7 +567,7 @@ class Explore(View):
         if tag:
             posts = Post.objects.filter(tags__in=[tag])
         else:
-            posts = Post.objects.all()
+            posts = None
 
         context = {
             'tag': tag,

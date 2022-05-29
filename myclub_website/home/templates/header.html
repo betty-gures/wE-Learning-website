@@ -42,20 +42,14 @@
                             </div>
                             <!-- RD Navbar Nav-->
                             <ul class="rd-navbar-nav">
-                                <li {% if page==
-                                'home_page'%}class="active"{% endif %}><a href="/"><span>Home</span></a></li>
-                                <li {% if page==
-                                'aboutus'%}class="active"{% endif %}><a class="new"
-                                                                        href="/aboutus"><span>ABOUT</span></a></li>
-                                <li {% if page==
-                                'categories'%}class="active"{% endif %}><a class="new" href="/categories"><span>CATEGORIES</span></a></li>
-                                <li {% if page==
-                                'home'%} class="active"{% endif %}><a class="new" href="/courses"><span>LEARNING ENVIRONMENTS</span></a></li>
+                                <li {% if page == 'home_page' %} class= "active" {% endif %}> <a href="/"><span>Home</span></a></li>
+                                <li {% if page == 'aboutus' %} class= "active" {% endif %}> <a class="new"href="/aboutus"><span>ABOUT</span></a></li>
+                                <li {% if page == 'categories' %} class= "active" {% endif %}> <a class="new" href="/categories"><span>CATEGORIES</span></a></li>
+                                <li {% if page == 'home' %} class= "active" {% endif %}> <a class="new" href="/courses"><span>LEARNING ENVIRONMENTS</span></a></li>
 
                                 <li>
                                     {% if not user.is_authenticated %}
-                                    <a class="new" href="/login"><span>LOGIN</span></a> | <a class="new"
-                                                                                             href="sign-in.html"><span>SIGN UP</span></a>
+                                    <a class="new" href="/accounts/login"><span>LOGIN | SIGN UP </span></a>
                                 </li>
                                 {% else %}
                                 <a class="new" href="/profile/"><span>{{user.first_name}}</span></a>

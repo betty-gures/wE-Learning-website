@@ -19,23 +19,24 @@ DEBUG = True
 ALLOWED_HOSTS = ['*', '127.0.0.1', 'localhost']
 
 LOGOUT_REDIRECT_URL = "/"
-
+LOGIN_REDIRECT_URL = "/"
 # Application definition
 
-AUTHENTICATION_BACKENDS = [
-
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-
-]
+# AUTHENTICATION_BACKENDS = [
+#
+#     # Needed to login by username in Django admin, regardless of `allauth`
+#     'django.contrib.auth.backends.ModelBackend',
+#
+#     # `allauth` specific authentication methods, such as login by e-mail
+#     'allauth.accounts.auth_backends.AuthenticationBackend',
+#
+# ]
 
 INSTALLED_APPS = [
     'courses.apps.CoursesConfig',
     'events',
     'social',
+    'accounts',
     'landing',
     'colearning',
     'home.apps.HomeConfig',
@@ -50,9 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth',
+    # 'allauth.accounts',
+    # 'allauth.socialaccount',
 
     'ckeditor',
     'ckeditor_uploader',
@@ -176,8 +177,6 @@ MEDIA_URL = '/media/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-LOGIN_REDIRECT_URL = 'post-list'
 
 ACCOUNT_EMAIL_REQUIRED = True
 

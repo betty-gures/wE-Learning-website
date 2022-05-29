@@ -38,8 +38,7 @@ def course_search(request):
 
 def categories(request):
     categoriesdata = Category.objects.all().order_by('title')[:1000]
-    category_parents = Category.objects.all()
-    context = {'categoriesdata': categoriesdata, 'page': 'categories', 'parents': category_parents}
+    context = {'categoriesdata': categoriesdata, 'page': 'categories',}
     return render(request, 'categories.html', context)
 
 

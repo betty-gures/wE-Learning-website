@@ -1,0 +1,106 @@
+{% extends "homebase.html" %}
+
+{% block head %}
+{% include 'head.html' %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% include 'breadcrumbs.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="page-loader page-loader-variant-1">
+    <div><img class='img-fluid' style='margin-top: -20px;margin-left: -18px;' width='330' height='67'
+              src='images/intense/logo-big.png' alt=''/>
+        <div class="offset-top-41 text-center">
+            <div class="spinner"></div>
+        </div>
+    </div>
+</div>
+<div class="page text-center">
+
+    <!--Section Login Register-->
+    <section class="section novi-background section-98 section-sm-110 section-bottom-66">
+        <div class="container">
+            <h2 class="font-weight-bold">Sign Up</h2>
+            <hr class="divider bg-mantis">
+            <div class="offset-md-top-66">
+                <!-- Responsive-tabs-->
+                <div class="responsive-tabs responsive-tabs-classic" data-type="horizontal">
+
+                    <div class="resp-tabs-container text-left tabs-group-default">
+
+                        <div>
+                            <div class="row justify-content-sm-center section-34">
+                                <div class="col-sm-8 col-md-6 col-lg-4">
+                                    <!-- RD Mailform-->
+                                    <form class="rd-mailform text-left" data-form-output="form-output-global"
+                                          data-form-type="contact" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            {{form.username.label}}
+                                            {{form.username}}
+                                            <!--                                            <label class="form-label form-label-outside" for="form-register-username">Name:</label>-->
+                                            <!--                                            <input class="form-control bg-default" id="form-register-username"-->
+                                            <!--                                                   type="text" name="name" data-constraints="@Required">-->
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.first_name.label}}
+                                            {{form.first_name}}
+                                            <!--                                            <label class="form-label form-label-outside" for="form-register-username">Name:</label>-->
+                                            <!--                                            <input class="form-control bg-default" id="form-register-username"-->
+                                            <!--                                                   type="text" name="name" data-constraints="@Required">-->
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.last_name.label}}
+                                            {{form.last_name}}
+                                            <!--                                            <label class="form-label form-label-outside" for="form-register-username">Name:</label>-->
+                                            <!--                                            <input class="form-control bg-default" id="form-register-username"-->
+                                            <!--                                                   type="text" name="name" data-constraints="@Required">-->
+                                        </div>
+                                        <div class="form-group offset-top-24">
+                                            {{form.email.label}}
+                                            {{form.email}}
+                                            <!--                                            <label class="form-label form-label-outside" for="form-register-email">Email:</label>-->
+                                            <!--                                            <input class="form-control bg-default" id="form-register-email" type="text"-->
+                                            <!--                                                   name="email" data-constraints="@Required @Email">-->
+                                        </div>
+                                        <div class="form-group offset-top-24">
+                                            {{form.password1.label}}
+                                            {{form.password1}}
+
+                                            <!--                                            <label class="form-label form-label-outside" for="form-register-password">Password:</label>-->
+                                            <!--                                            <input class="form-control bg-default" id="form-register-password"-->
+                                            <!--                                                   type="text" name="pass" data-constraints="@Required">-->
+                                        </div>
+                                        <div class="form-group offset-top-24">
+                                            {{form.password2.label}}
+                                            {{form.password2}}
+
+                                            <!--                                            <label class="form-label form-label-outside"-->
+                                            <!--                                                   for="form-register-confirm-password">Confirm Password:</label>-->
+                                            <!--                                            <input class="form-control bg-default" id="form-register-confirm-password"-->
+                                            <!--                                                   type="text" name="confirmpass" data-constraints="@Required">-->
+                                        </div>
+                                        <div class="offset-top-24">
+                                            <button class="btn btn-primary btn-block" type="submit">create an account
+                                            </button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+</body>
+</html>
+{% endblock %}
+
