@@ -1,4 +1,3 @@
-
 from decouple import config
 from pathlib import Path
 import django_heroku
@@ -7,7 +6,6 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -18,8 +16,9 @@ SECRET_KEY = "django-insecure-j+^tgm622$7%6076=r)j=^6v^&d3oald#k&-0t9upn!%rxy&m7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*', '127.0.0.1', 'localhost']
 
+LOGOUT_REDIRECT_URL = "/"
 
 # Application definition
 
@@ -40,7 +39,7 @@ INSTALLED_APPS = [
     'landing',
     'colearning',
     'home.apps.HomeConfig',
-    
+
     'crispy_forms',
 
     'django.contrib.admin',
@@ -60,7 +59,6 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,11 +91,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myclub_website.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-
 
 
 """
@@ -135,7 +130,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -154,7 +148,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -166,13 +159,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATICFILES_DIRS = [
 
-BASE_DIR / 'static'
+    BASE_DIR / 'static'
 ]
 
 STATIC_URL = 'static/'
@@ -180,8 +172,6 @@ STATIC_URL = 'static/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL = '/media/'
-
-
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -198,13 +188,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 django_heroku.settings(locals())
 
 SITE_ID = 1
 
 ####################################
-    ##  CKEDITOR CONFIGURATION ##
+##  CKEDITOR CONFIGURATION ##
 ####################################
 
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'

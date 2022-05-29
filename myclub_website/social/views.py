@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.utils import timezone
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -82,8 +82,8 @@ class PostListView(LoginRequiredMixin, View):
 
 
 class PostDetailView(LoginRequiredMixin, View):
-    def get(self, request, pk, *args, **kwargs):
-        post = Post.objects.get(pk=pk)
+    def get(self, request, *args, **kwargs):
+        post = Post.objects.get(pk=kwargs.get('post_id'))
         form = CommentForm()
 
         comments = Comment.objects.filter(post=post)
@@ -96,8 +96,8 @@ class PostDetailView(LoginRequiredMixin, View):
 
         return render(request, 'social/post_detail.html', context)
 
-    def post(self, request, pk, *args, **kwargs):
-        post = Post.objects.get(pk=pk)
+    def post(self, request, *args, **kwargs):
+        post = Post.objects.get(pk=kwargs.get('post_id'))
         form = CommentForm(request.POST)
 
         if form.is_valid():
@@ -138,7 +138,7 @@ class CommentReplyView(LoginRequiredMixin, View):
         notification = Notification.objects.create(notification_type=2, from_user=request.user,
                                                    to_user=parent_comment.author, comment=new_comment)
 
-        return redirect('post-detail', pk=post_pk)
+        return HttpResponseRedirect(reverse('social:post-detail', kwargs={"post_id": post_pk}))
 
 
 class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -158,11 +158,16 @@ class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'social/post_delete.html'
-    success_url = reverse_lazy('post-list')
+
+    # success_url = reverse_lazy('social:post-list',kwargs={"course_id":course})
 
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+
+    def get_success_url(self):
+        return reverse("social:post-list",
+                       kwargs={'course_id': self.get_object().learning_environment.id})
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -171,7 +176,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def get_success_url(self):
         pk = self.kwargs['post_pk']
-        return reverse_lazy('post-detail', kwargs={'pk': pk})
+        return reverse_lazy('social:post-detail', kwargs={'post_id': pk})
 
     def test_func(self):
         post = self.get_object()
@@ -204,6 +209,8 @@ class ProfileView(View):
             'posts': posts,
             'number_of_followers': number_of_followers,
             'is_following': is_following,
+            # 'reverse': request.META.get("HTTP_REFERER")
+            # 'course'
         }
 
         return render(request, 'social/profile.html', context)
@@ -216,7 +223,7 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_success_url(self):
         pk = self.kwargs['pk']
-        return reverse_lazy('profile', kwargs={'pk': pk})
+        return reverse_lazy('social:profile', kwargs={'pk': pk})
 
     def test_func(self):
         profile = self.get_object()
@@ -230,7 +237,7 @@ class AddFollower(LoginRequiredMixin, View):
 
         notification = Notification.objects.create(notification_type=3, from_user=request.user, to_user=profile.user)
 
-        return redirect('profile', pk=profile.pk)
+        return redirect('social:profile', pk=profile.pk)
 
 
 class RemoveFollower(LoginRequiredMixin, View):
@@ -238,7 +245,7 @@ class RemoveFollower(LoginRequiredMixin, View):
         profile = UserProfile.objects.get(pk=pk)
         profile.followers.remove(request.user)
 
-        return redirect('profile', pk=profile.pk)
+        return redirect('social:profile', pk=profile.pk)
 
 
 class AddLike(LoginRequiredMixin, View):
@@ -390,7 +397,7 @@ class SharedPostView(View):
 
             new_post.save()
 
-        return redirect('post-list')
+        return redirect('social:post-list')
 
 
 class UserSearch(View):
@@ -428,7 +435,7 @@ class PostNotification(View):
         notification.user_has_seen = True
         notification.save()
 
-        return redirect('post-detail', pk=post_pk)
+        return redirect('social:post-detail', pk=post_pk)
 
 
 class FollowNotification(View):
@@ -439,7 +446,7 @@ class FollowNotification(View):
         notification.user_has_seen = True
         notification.save()
 
-        return redirect('profile', pk=profile_pk)
+        return redirect('social:profile', pk=profile_pk)
 
 
 class ThreadNotification(View):
@@ -450,7 +457,7 @@ class ThreadNotification(View):
         notification.user_has_seen = True
         notification.save()
 
-        return redirect('thread', pk=object_pk)
+        return redirect('social:thread', pk=object_pk)
 
 
 class RemoveNotification(View):
@@ -508,7 +515,7 @@ class CreateThread(View):
                 return redirect('thread', pk=thread.pk)
         except:
             messages.error(request, 'Invalid username')
-            return redirect('create-thread')
+            return redirect('social:create-thread')
 
 
 class ThreadView(View):
@@ -548,7 +555,7 @@ class CreateMessage(View):
             thread=thread
         )
 
-        return redirect('thread', pk=pk)
+        return redirect('social:thread', pk=pk)
 
 
 class Explore(View):

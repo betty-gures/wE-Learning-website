@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-3 col-sm-6">
-            <a href="{% url 'post-list' %}" class="btn btn-light">Back to Feed</a>
+            <a href="{% url 'index'  %}" class="btn btn-light">Back to Feed</a>
         </div>
     </div>
 
@@ -16,14 +16,14 @@
                 <h3 class="py-4">{{ profile.name }}
                     <span>
                         {% if request.user == user %}
-                            <a href="{% url 'profile-edit' profile.pk %}" class="edit-color"><i class="far fa-edit"></i></a>
+                            <a href="{% url 'social:profile-edit' profile.pk %}" class="edit-color"><i class="far fa-edit"></i></a>
                         {% endif %}
                     </span>
                     {% else %}
                     <h3 class="py-4">{{ user.username }}
                         <span>
                             {% if request.user == user %}
-                                <a href="{% url 'profile-edit' profile.pk %}" class="edit-color"><i class="far fa-edit"></i></a>
+                                <a href="{% url 'social:profile-edit' profile.pk %}" class="edit-color"><i class="far fa-edit"></i></a>
                             {% endif %}
                         </span>
                     </h3>
@@ -38,7 +38,7 @@
             {% endif %}
 
             <div class="mb-3">
-                <a href="{% url 'list-followers' profile.pk %}" class="post-link">
+                <a href="{% url 'social:list-followers' profile.pk %}" class="post-link">
                 Followers: {{ number_of_followers }}
                 </a>
                 
@@ -59,14 +59,14 @@
             {% if user == request.user %}
             {% else %}
             {% if is_following %}
-                    <form method="POST" action="{% url 'remove-follower' profile.pk %}">
+                    <form method="POST" action="{% url 'social:remove-follower' profile.pk %}">
                         {% csrf_token %}
                         <button class="btn btn-outline-danger" type="submit">
                          Unfollow   
                         </button>
                     </form>
                     {% else %}
-                    <form method="POST" action="{% url 'add-follower' profile.pk %}">
+                    <form method="POST" action="{% url 'social:add-follower' profile.pk %}">
                         {% csrf_token %}
                         <button class="btn btn-outline-success" type="submit">
                          Follow   
@@ -81,12 +81,12 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-8 col-sm-12 border-bottom">
             <div>
-                <a href="{% url 'profile' post.author.profile.pk %}">
+                <a href="{% url 'social:profile' post.author.profile.pk %}">
                     <img class="rounded-circle post-img" height="30" width="30" src="{{ post.author.profile.picture.url }}"/>
                 </a>
 
                 <p class="post-text">
-                    <a class="text-primary post-link" href="{% url 'profile' post.author.profile.pk %}">@{{ post.author }} </a> {{ post.created_on }}
+                    <a class="text-primary post-link" href="{% url 'social:profile' post.author.profile.pk %}">@{{ post.author }} </a> {{ post.created_on }}
                 </p>
             </div>
             
@@ -105,10 +105,10 @@
                 <div class='body'>
                     <p>{{ post.body }}</p>
                 </div>
-                <a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
+                <a href="{% url 'social:post-detail' post.pk %}" class="stretched-link"></a>
             </div>
                         <div class="d-flex flex-row">
-                <form method="POST" action="{% url 'like' post.pk %}">
+                <form method="POST" action="{% url 'social:like' post.pk %}">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
                     <button class="remove-default-btn" type="submit">
@@ -118,7 +118,7 @@
                     </button>
                 </form>
 
-                <form method="POST" action="{% url 'dislike' post.pk %}">
+                <form method="POST" action="{% url 'social:dislike' post.pk %}">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
                     <button class="remove-default-btn" type="submit">

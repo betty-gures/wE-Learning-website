@@ -45,7 +45,7 @@
                 </a>
                 <p class="post-text">
                     <a class="text-primary post-link" href="{% url 'social:profile' post.author.pk %}">
-                        @ {{ post.author }}</a> shared a post on {{ post.shared_on }}
+                        @{{ post.author }}</a> shared a post on {{ post.shared_on }}
                 </p>
             </div>
             {% else %}
@@ -99,7 +99,7 @@
                 <div class="body">
                     <p>{{ post.body }}</p>
                 </div>
-                <a href="{% url 'social:post-detail' post.pk %}" class="stretched-link"></a>
+                <a href="{% url 'social:post-detail' post_id=post.pk %}" class="stretched-link"></a>
             </div>
             <!-- we are passing the pk (primary key) of each post. (Every django object has its own primary key) (views.py postdetailview- details keep the same pk as the parent post)-->
             <div class="d-flex flex-row">

@@ -38,8 +38,11 @@
                       <li {% if page == 'aboutus'%}class="active"{% endif %}><a class="new" href="/aboutus"><span>ABOUT</span></a></li>
                       <li><a class="new" href="/categories"><span>CATEGORIES</span></a></li>
                       <li><a class="new" href="/courses"><span>COURSES</span></a></li>
-
+                      {{ user.is_authenticated }}
+                      {% if user.is_authenticated %}
+                      {% else %}
                       <li><a class="new" href="login.html"><span>LOGIN</span></a> | <a class="new" href="sign-in.html"><span>SIGN UP</span></a></li>
+                    {% endif %}
                     </ul>
                   </div>
                 </div>
