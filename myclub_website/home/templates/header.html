@@ -53,7 +53,7 @@
                                     <a class="new" href="/accounts/signup"><span>| SIGN UP  </span></a>
                                 </li>
                                 {% else %}
-                                <a class="new" href="/"><span>{{user.first_name}}</span></a>
+                                    <a class="new" href="/"><span>{{user.first_name}}</span></a>
                                 {% endif %}
 
 
@@ -71,7 +71,7 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="form-label" for="rd-navbar-search-form-control">Type to search
-                                    courses...</label>
+                                    learning environments...</label>
                                 <input class="rd-navbar-search-form-control form-control form-control-gray-lightest"
                                        id="rd-navbar-search-form-control" type="text" name="query" autocomplete="off"/>
                             </div>
