@@ -1,0 +1,65 @@
+
+<div class="page-loader page-loader-variant-1">
+    <div>
+        <div class="offset-top-41 text-center">
+            <div class="spinner"></div>
+        </div>
+    </div>
+</div>
+<div class="page text-center">
+
+    <!--Section Login Register-->
+    <section class="section novi-background section-98 section-sm-110 section-bottom-66">
+        <div class="container">
+            <h2 class="font-weight-bold">Sign In</h2>
+            <hr class="divider bg-mantis">
+            <div class="offset-md-top-66">
+
+                        <div>
+                            <div class="row justify-content-sm-center section-34">
+                                <div class="col-sm-8 col-md-6 col-lg-4">
+                                    <!-- RD Mailform-->
+                                    <form class="rd-mailform text-left" data-form-output="form-output-global"
+                                          data-form-type="contact" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            {{form.username.label}}
+                                            {{form.username}}
+                                            {{form.username.help_text}}
+                                            <!--                                <label class="form-label form-label-outside" for="form-login-username">Username or e-mail:</label>-->
+                                            <!--                                <input class="form-control bg-default" id="form-login-username" type="text" name="username" data-constraints="@Required">-->
+                                        </div>
+                                        <div class="form-group offset-top-24">
+                                            {{form.password.label}}
+                                            {{form.password}}
+                                            {{form.password.help_text}}
+                                            <!--                                <label class="form-label form-label-outside" for="form-login-password">Password:</label>-->
+                                            <!--                                <input class="form-control bg-default" id="form-login-password" type="text" name="pass" data-constraints="@Required">-->
+                                        </div>
+                                        <div class="offset-top-24">
+                                            <button class="btn btn-primary btn-block" type="submit">sign in</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+                        <div>
+                            <div class="row justify-content-sm-center section-34">
+                                <div class="col-sm-8 col-md-6 col-lg-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+</body>
+</html>
+
+
