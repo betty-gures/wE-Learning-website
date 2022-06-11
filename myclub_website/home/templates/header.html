@@ -53,7 +53,9 @@
                                     <a class="new" href="/accounts/signup"><span>| SIGN UP  </span></a>
                                 </li>
                                 {% else %}
-                                    <a class="new" href="/"><span>{{user.first_name}}</span></a>
+                                    <a class="new" href="{% url 'social:profile' request.user.profile.pk %}"><span>{{user.first_name}}</span></a>
+                                    <a class="new" href="{% url 'logout' %}"><span>| LOGOUT  </span></a>
+
                                 {% endif %}
 
 
