@@ -34,6 +34,8 @@ def course_search(request):
             context = {'page': 'search',
                        'courses': courses}
             return render(request, 'search.html', context)
+        else:
+            return render(request, 'home_page.html')
 
 
 def categories(request):

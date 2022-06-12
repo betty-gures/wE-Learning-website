@@ -18,7 +18,8 @@ class Post(models.Model):
 	likes = models.ManyToManyField(User, blank=True, related_name='likes')
 	dislikes = models.ManyToManyField(User, blank=True, related_name='dislikes')
 	tags = models.ManyToManyField('Tag', blank=True)
-	learning_environment = models.ForeignKey(Courses, on_delete=models.PROTECT)
+	learning_environment = models.ForeignKey(Courses, on_delete=models.CASCADE)
+
 
 	def create_tags(self):
 		for word in self.body.split():

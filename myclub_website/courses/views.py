@@ -64,7 +64,7 @@ class CreateCourseView(views.View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse("course_detail",
-                                                kwargs={'id': form.instance['id']}))
+                                                kwargs={'id': form.instance.id}))
 
 
         context = {"form": form}

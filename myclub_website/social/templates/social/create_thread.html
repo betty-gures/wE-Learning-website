@@ -20,8 +20,10 @@
 		<div class="col-md-5 col-sm-12">
 			{% if messages %}
 				{% for message in messages %}
-					<div class="alert alert-danger">
-						{{ message }}
+					<div class="alert alert-success">
+						Click "Back to inbox" Button, to see all conversations.
+						If searched user exists, select desired conversation.
+						Else, make sure username is correct and try again.
 					</div>
 				{% endfor %}
 			{% endif %}
