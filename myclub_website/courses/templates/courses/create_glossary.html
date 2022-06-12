@@ -1,0 +1,47 @@
+{% extends "homebase.html" %}
+
+{% block head %}
+{% include 'head.html' %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% include 'breadcrumbs.html' %}
+{% endblock %}
+
+{% block content %}
+<br>
+
+
+<section class="section novi-background section-98 section-md-110">
+    <div class="container">
+        <h1>New Subcategory </h1>
+
+        <hr class="divider bg-mantis">
+        <BR/>
+        <form method="post">
+            {%csrf_token%}
+
+<!--            <input type="hidden" name="courseId" value="{{course_id}}">-->
+            <label>
+                <b>
+                    {{ form.term.label }}
+                </b>
+            </label>
+            {{ form.term }}
+
+            </br>
+
+            <label>
+                <b>
+                    {{ form.detail.label }}
+                </b>
+            </label>
+            {{ form.detail }}
+
+            </br> </br>
+            <button class="btn btn-success" type="submit"> Create New Category</button>
+
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,12 +1,19 @@
-
+<br>
 
 
  {% load static %}
  <!-- Boxed Accordion-->
       <section class="section novi-background section-50">
         <div class="container">
-          <h1>Glossary of {{ course.title  }} </h1>
-          <hr class="divider bg-mantis">
+            <h1>Glossary of {{ course.title  }} </h1>
+
+        <hr class="divider bg-mantis">
+        <BR/>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'courses:create_glossary' course_id=course.id %}" class="btn btn-success btn-sm">New Term</a>
+                        {% endif %}
+
+
           <div class="row justify-content-md-center offset-top-66 text-left">
             <div class="col-md-12 col-lg-6">
               <!-- Bootstrap Accordion-->

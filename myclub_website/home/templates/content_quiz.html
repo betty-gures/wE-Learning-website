@@ -7,6 +7,10 @@
 
         <h1>Quiz Page of {{ course.title  }} </h1>
           <hr class="divider bg-mantis">
+        <BR/>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'courses:create_quiz' course_id=course.id %}" class="btn btn-success btn-sm">New Quiz</a>
+                        {% endif %}
           <div class="row justify-content-md-center offset-top-66 text-left">
             <div class="col-md-12 col-lg-6">
             <ul>

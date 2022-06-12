@@ -1,44 +1,55 @@
 {% load static %}
 <!-- Page Content-->
-      <section class="section novi-background section-98 section-sm-124">
-        <div class="container">
-          <!-- Shop Grid View-->
 
-{% for rs in coursesdata %}
-          <div class="offset-top-41">
-                      <!-- Product-->
-                      <div class="product product-list product-list-wide unit flex-md-row align-items-sm-start">
-                        <!-- Product Image-->
-                        <div class="product-image unit-left">
-                          <img class="img-fluid product-image-area" src="{{ rs.image.url }}" alt="">
-                        </div>
-                        <div class="unit-body text-left">
-                          <div class="unit flex-xl-row align-items-xl-start">
+
+<section class="section novi-background section-98 section-sm-124">
+    <div class="container">
+        <!-- Shop Grid View-->
+        <h1>Add New </h1>
+
+        <hr class="divider bg-mantis">
+        <BR/>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'courses:create_course' %}" class="btn btn-success btn-sm">New Learning Environment</a>
+        {% endif %}
+        {% for rs in coursesdata %}
+        <div class="offset-top-41">
+            <!-- Product-->
+            <div class="product product-list product-list-wide unit flex-md-row align-items-sm-start">
+                <!-- Product Image-->
+                <div class="product-image unit-left">
+                    <img class="img-fluid product-image-area" width="365px;" height="240px;" src="{{ rs.image.url }}"
+                         alt="">
+                </div>
+                <div class="unit-body text-left">
+                    <div class="unit flex-xl-row align-items-xl-start">
+                        <div class="col-7">
                             <div class="unit-body">
-                              <!-- Product Title-->
-                              <h2 class="product-title offset-top-0">
-                                <a href="/course_detail/{{rs.id}}">{{ rs.title }}</a>
-                              </h2>
+                                <!-- Product Title-->
+                                <h2 class="product-title offset-top-0">
+                                    <a href="/course_detail/{{rs.id}}">{{ rs.title }}</a>
+                                </h2>
 
-                              <p class="product-desc">{{ rs.lookin | safe }}</p>
-                                <a class="font-weight-bold text-picton-blue d-none d-xl-inline-block" href="/course_detail/{{rs.id}}">Learn More</a>
+                                <p class="product-desc">{{ rs.lookin | safe }}</p>
+                                <a class="font-weight-bold text-picton-blue d-none d-xl-inline-block"
+                                   href="/course_detail/{{rs.id}}">Learn More</a>
                             </div>
+                        </div>
+                        <div class="col-5">
                             <div class="unit-right product-list-right">
 
-                              <!-- Product Add To cart-->
-                                <a class="btn btn-sm btn-picton-blue btn-icon btn-icon-left product-btn offset-top-20 offset-sm-top-0 offset-xl-top-20 d-xl-block" href="/course_detail/{{rs.id}}">
+                                <!-- Product Add To cart-->
+                                <a class="btn btn-sm btn-picton-blue btn-icon btn-icon-left product-btn offset-top-20 offset-sm-top-0 offset-xl-top-20 d-xl-block"
+                                   href="/course_detail/{{rs.id}}">
                                     <span class="novi-icon icon mdi mdi-play-circle"></span>Explore</a>
                             </div>
-                          </div>
                         </div>
-                      </div>
-          </div>
-{% endfor %}
-
-
-
-
-
-
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+        {% endfor %}
+
+
+    </div>
+</section>

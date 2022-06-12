@@ -7,8 +7,10 @@
 
         <hr class="divider bg-mantis">
         <BR/>
-                        <a href="/social/{{ course.id }}" class="btn btn-success btn-sm">New Category</a>
-                        <a href="/social/{{ course.id }}" class="btn btn-primary btn-sm">New Subcategory</a>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'courses:create_category' %}" class="btn btn-success btn-sm">New Category</a>
+                        <a href="{% url 'courses:create_subcategory' %}" class="btn btn-primary btn-sm">New Subcategory</a>
+                        {% endif %}
 
         <div class="row justify-content-md-center offset-top-66 text-left">
             <div class="col-md-12 col-lg-6">

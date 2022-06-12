@@ -1,0 +1,84 @@
+{% extends "homebase.html" %}
+
+{% block head %}
+{% include 'head.html' %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% include 'breadcrumbs.html' %}
+{% endblock %}
+
+{% block content %}
+<br>
+
+
+<section class="section novi-background section-98 section-md-110">
+    <div class="container">
+        <h1>New Subcategory </h1>
+
+        <hr class="divider bg-mantis">
+        <BR/>
+        <form method="post">
+            {%csrf_token%}
+
+<!--            <input type="hidden" name="courseId" value="{{course_id}}">-->
+            <label>
+                <b>
+                    {{ form.question.label }}
+                </b>
+            </label>
+            {{ form.question }}
+
+            </br>
+
+            <label>
+                <b>
+                    {{ form.choiceA.label }}
+                </b>
+            </label>
+            {{ form.choiceA }}
+
+                        </br>
+
+            <label>
+                <b>
+                    {{ form.choiceB.label }}
+                </b>
+            </label>
+            {{ form.choiceB }}
+
+
+                        </br>
+
+            <label>
+                <b>
+                    {{ form.choiceC.label }}
+                </b>
+            </label>
+            {{ form.choiceC }}
+
+                        </br>
+
+            <label>
+                <b>
+                    {{ form.choiceD.label }}
+                </b>
+            </label>
+            {{ form.choiceD }}
+
+                        </br>
+
+            <label>
+                <b>
+                    {{ form.rightAnswer.label }}
+                </b>
+            </label>
+            {{ form.rightAnswer }}
+
+            </br> </br>
+            <button class="btn btn-success" type="submit"> Create New Category</button>
+
+        </form>
+    </div>
+</section>
+{% endblock %}

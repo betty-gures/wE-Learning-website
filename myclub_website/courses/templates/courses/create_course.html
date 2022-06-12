@@ -1,0 +1,90 @@
+{% extends "homebase.html" %}
+
+{% block head %}
+{% include 'head.html' %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% include 'breadcrumbs.html' %}
+{% endblock %}
+
+{% block content %}
+<br>
+
+
+<section class="section novi-background section-98 section-md-110">
+    <div class="container">
+        <h1>New Subcategory </h1>
+
+        <hr class="divider bg-mantis">
+        <BR/>
+        <form method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+
+
+            <label>
+                <b>
+                    {{ form.category.label }}
+                </b>
+            </label>
+            {{ form.category }}
+
+            </br>
+
+            <label>
+                <b>
+                    {{ form.title.label }}
+                </b>
+            </label>
+            {{ form.title }}
+            </br>
+
+            <label>
+                <b>
+                    {{ form.keywords.label }}
+                </b>
+            </label>
+            {{ form.keywords }}
+
+                        </br>
+
+            <label>
+                <b>
+                    {{ form.description.label }}
+                </b>
+            </label>
+            {{ form.description }}
+
+                                    </br>
+
+            <label>
+                <b>
+                    {{ form.image.label }}
+                </b>
+            </label>
+            {{ form.image }}
+
+                                    </br>
+
+            <label>
+                <b>
+                    {{ form.lookin.label }}
+                </b>
+            </label>
+            {{ form.lookin }}
+
+                                            </br>
+
+            <label>
+                <b>
+                    {{ form.detail.label }}
+                </b>
+            </label>
+            {{ form.detail }}
+            </br> </br>
+            <button class="btn btn-success" type="submit"> Create New Category</button>
+
+        </form>
+    </div>
+</section>
+{% endblock %}

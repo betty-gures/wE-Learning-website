@@ -16,7 +16,8 @@ class CoursesAdmin(admin.ModelAdmin):
 admin.site.register(Courses,CoursesAdmin)
 
 class RoadmapAdmin(admin.ModelAdmin):
-    list_display = ['title', 'course', 'detail', 'warning']
+    list_display = ['title', 'course',
+                    'detail', 'warning']
     ordering = ['order_number','id']
 admin.site.register(Roadmap,RoadmapAdmin)
 

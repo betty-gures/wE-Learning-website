@@ -6,6 +6,10 @@
     <div class="container">
         <h1>Quiz {{ quiz.quiz_name  }} </h1>
           <hr class="divider bg-mantis">
+        <BR/>
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'courses:create_quiz_question' quiz_id=quiz.id %}" class="btn btn-success btn-sm">New Question</a>
+                        {% endif %}
           <div class="row justify-content-md-center offset-top-66 text-left">
             <div class="col-md-12 col-lg-6">
 
@@ -14,10 +18,11 @@
 
                             <ul class="list-index list-unstyled row justify-content-center offset-top-50 offset-lg-top-66">
                             {% for rs in quizdetailsdata %}
+
                                 <li class="container-fluid">
-                                    <span class="list-index-counter icon novi-icon icon-lg icon-outlined icon-darker-filled">
+                                    <span class="list-index-counter icon novi-icon icon-lg icon-outlined icon-darker-filled mr-3 mb-3">
                                     </span>
-                                    {{rs.question | safe}}
+                                    <p>{{rs.question | safe}}</p>
 
                                     <div class="form-group group-sm">
                 <div class="custom-control custom-radio d-inline-block">
