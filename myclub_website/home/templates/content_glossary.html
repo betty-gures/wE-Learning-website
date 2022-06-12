@@ -19,11 +19,18 @@
               <!-- Bootstrap Accordion-->
               <div class="accordion-boxed offset-top-0" role="tablist" aria-multiselectable="true" id="accordion-2">
 {% for rs in glossarydata %}
-          <div class="card card-boxed"><a class="card-header" href="#" data-toggle="collapse" data-target="#accordion-2--card-{{ rs.id }}" aria-expanded="false" aria-controls="accordion-2--card-{{ rs.id }}">{{ rs.term }}</a>
+          <div class="card card-boxed">
+
+              <a class="card-header" href="#" data-toggle="collapse" data-target="#accordion-2--card-{{ rs.id }}" aria-expanded="false" aria-controls="accordion-2--card-{{ rs.id }}">{{ rs.term }}</a>
                   <div class="collapse show" id="accordion-2--card-{{ rs.id }}" aria-labelledby="headingOne" data-parent="#accordion-2">
                     <div class="card-body"> {{ rs.detail | safe }}</div>
+
                   </div>
                 </div>
+   {% if request.user.is_authenticated %}
+                                <a href="{% url 'courses:delete_glossary' rs.id %}" class="btn btn-md"
+                               style="background-color:white;"><i class="fa fa-trash"></i></a>
+                                {% endif %}
 {% endfor %}
               </div>
             </div>

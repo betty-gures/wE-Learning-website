@@ -14,15 +14,19 @@
 
 <section class="section novi-background section-98 section-md-110">
     <div class="container">
-        <h1>New Subcategory </h1>
+        <h1>New Quiz </h1>
 
         <hr class="divider bg-mantis">
         <BR/>
         <form method="post">
             {%csrf_token%}
+<div class="row">
+    <div class="col-4">
 
-<!--            <input type="hidden" name="courseId" value="{{course_id}}">-->
-            <label>
+    </div>
+        <div class="col-4">
+        <div class="form-group">
+             <label>
                 <b>
                     {{ form.quiz_name.label }}
                 </b>
@@ -37,9 +41,17 @@
                 </b>
             </label>
             {{ form.quiz_level }}
+        </div>
+    </div>
+        <div class="col-4">
+
+    </div>
+</div>
+<!--            <input type="hidden" name="courseId" value="{{course_id}}">-->
+
 
             </br> </br>
-            <button class="btn btn-success" type="submit"> Create New Category</button>
+            <button class="btn btn-success" type="submit"> Create New Quiz</button>
 
         </form>
     </div>

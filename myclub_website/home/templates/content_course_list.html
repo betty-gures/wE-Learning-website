@@ -5,12 +5,12 @@
 <section class="section novi-background section-98 section-sm-124">
     <div class="container">
         <!-- Shop Grid View-->
-        <h1>Add New </h1>
 
-        <hr class="divider bg-mantis">
-        <BR/>
+
+
+
         {% if request.user.is_authenticated %}
-        <a href="{% url 'courses:create_course' %}" class="btn btn-success btn-sm">New Learning Environment</a>
+        <a href="{% url 'courses:create_course' %}" class="btn btn-success btn-sm">+ Add New Learning Environment</a>
         {% endif %}
         {% for rs in coursesdata %}
         <div class="offset-top-41">
@@ -42,7 +42,19 @@
                                 <a class="btn btn-sm btn-picton-blue btn-icon btn-icon-left product-btn offset-top-20 offset-sm-top-0 offset-xl-top-20 d-xl-block"
                                    href="/course_detail/{{rs.id}}">
                                     <span class="novi-icon icon mdi mdi-play-circle"></span>Explore</a>
+
                             </div>
+                                    {% if request.user.is_authenticated %}
+
+                                                  <div class="unit-right product-list-right">
+
+
+ <a class="btn btn-sm btn-danger btn-icon btn-icon-left product-btn offset-top-20 offset-sm-top-0 offset-xl-top-20 d-xl-block"
+                                   href="{% url 'courses:delete_course' rs.id %}">
+                                    <span class="novi-icon icon fa fa-trash"></span>Delete</a>
+                            </div>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>

@@ -20,9 +20,13 @@
         <BR/>
         <form method="post">
             {%csrf_token%}
+<div class="row">
+    <div class="col-4">
 
-
-            <label>
+    </div>
+        <div class="col-4">
+        <div class="form-group">
+             <label>
                 <b>
                     {{ form.parent.label }}
                 </b>
@@ -38,8 +42,16 @@
             </label>
             {{ form.title }}
 
+        </div>
+    </div>
+        <div class="col-4">
+
+    </div>
+</div>
+
+
             </br> </br>
-            <button class="btn btn-success" type="submit"> Create New Category</button>
+            <button class="btn btn-success" type="submit"> Create New Subcategory</button>
 
         </form>
     </div>

@@ -34,7 +34,7 @@
                                             </br>
                                             {{form.username}}
                                             </br>
-                                            {{form.username.help_text}}
+<!--                                            {{form.username.help_text}}-->
                                             {% if form.username.errors %}
                                             <div class="alert alert-danger" role="alert">
                                                 {{form.username.errors}}
@@ -43,8 +43,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="d-flex flex-row align-items-center mb-4 col-4">
+                                        <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label"><b>{{form.first_name.label}}</b></label>
@@ -63,7 +62,7 @@
 
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4 ml-4 col-4">
+                                        <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label"><b>{{form.last_name.label}}</b></label>
@@ -79,7 +78,7 @@
                                             </div>
                                         </div>
 
-                                    </div>
+
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -104,7 +103,7 @@
                                             </br>
                                             {{form.password1}}
                                             </br>
-                                            {{form.password1.help_text}}
+<!--                                            {{form.password1.help_text}}-->
 
                                             {% if form.password1.errors %}
                                             <div class="alert alert-danger" role="alert">
@@ -123,7 +122,7 @@
                                             </br>
                                             {{form.password2}}
                                             </br>
-                                            {{form.password2.help_text}}
+<!--                                            {{form.password2.help_text}}-->
                                             {% if form.password2.errors %}
                                             <div class="alert alert-danger" role="alert">
                                                 {{form.password2.errors}}
@@ -133,7 +132,7 @@
                                     </div>
 
 
-                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                    <div class="d-flex justify-content-left  mb-3 ">
                                         <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
                                     </div>
 

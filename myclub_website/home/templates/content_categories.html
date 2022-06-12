@@ -7,21 +7,36 @@
 
         <hr class="divider bg-mantis">
         <BR/>
-                        {% if request.user.is_authenticated %}
-                        <a href="{% url 'courses:create_category' %}" class="btn btn-success btn-sm">New Category</a>
-                        <a href="{% url 'courses:create_subcategory' %}" class="btn btn-primary btn-sm">New Subcategory</a>
-                        {% endif %}
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'courses:create_category' %}" class="btn btn-success btn-sm">New Category</a>
+        <a href="{% url 'courses:create_subcategory' %}" class="btn btn-primary btn-sm">New Subcategory</a>
+        {% endif %}
 
         <div class="row justify-content-md-center offset-top-66 text-left">
             <div class="col-md-12 col-lg-6">
                 <ul>
                     {% for category in categoriesdata %}
                     {% if not category.parent %}
-                    <li><a href="/category_detail/{{category.id}}">{{category.title}}</a></li>
+                    <li>
+
+                        <a href="/category_detail/{{category.id}}">{{category.title}}</a>
+                        {% if request.user.is_authenticated %}
+
+                        <a href="{% url 'courses:delete_category' category.id %}" class="btn btn-md"
+                           style="background-color:white;"><i class="fa fa-trash"></i></a>
+                                                    {% endif %}
+
+                    </li>
                     <ul>
                         {% for sub_category in categoriesdata %}
                         {% if sub_category.parent and sub_category.parent.id == category.id %}
-                        <li><a href="/category_detail/{{sub_category.id}}">{{sub_category.title}}</a></li>
+                        <li><a href="/category_detail/{{sub_category.id}}">{{sub_category.title}}</a>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'courses:delete_category' sub_category.id %}" class="btn btn-md"
+                               style="background-color:white;"><i class="fa fa-trash"></i></a>
+                            {% endif %}
+
+                        </li>
                         {% endif %}
                         {% endfor %}
                     </ul>

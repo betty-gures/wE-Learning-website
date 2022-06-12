@@ -14,13 +14,18 @@
 
 <section class="section novi-background section-98 section-md-110">
     <div class="container">
-        <h1>New Subcategory </h1>
+        <h1>New Learning Environment </h1>
 
         <hr class="divider bg-mantis">
         <BR/>
         <form method="post" enctype="multipart/form-data">
             {%csrf_token%}
+<div class="row">
+    <div class="col-4">
 
+    </div>
+        <div class="col-4">
+        <div class="form-group">
 
             <label>
                 <b>
@@ -81,6 +86,13 @@
                 </b>
             </label>
             {{ form.detail }}
+        </div>
+    </div>
+        <div class="col-4">
+
+    </div>
+</div>
+
             </br> </br>
             <button class="btn btn-success" type="submit"> Create New Category</button>
 

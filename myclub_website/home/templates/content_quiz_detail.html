@@ -22,7 +22,13 @@
                                 <li class="container-fluid">
                                     <span class="list-index-counter icon novi-icon icon-lg icon-outlined icon-darker-filled mr-3 mb-3">
                                     </span>
-                                    <p>{{rs.question | safe}}</p>
+
+                                    <p>
+                                        {% if request.user.is_authenticated %}
+                                <a href="{% url 'courses:delete_quiz_question' rs.id %}" class="btn btn-md"
+                               style="background-color:white;"><i class="fa fa-trash"></i></a>
+                                {% endif %}
+                                        {{rs.question | safe}}</p>
 
                                     <div class="form-group group-sm">
                 <div class="custom-control custom-radio d-inline-block">

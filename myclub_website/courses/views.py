@@ -1,11 +1,14 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, reverse
 from django import views
+from django.urls import reverse_lazy
+from django.views.generic import DeleteView
+
 from .forms import CreateCategoryForm, CreateSubCategoryForm, CreateCourseForm, CreateGlossaryForm, CreateQuizForm, \
     CreateQuizQuestionsForm
 
 # Create your views here.
-from .models import Category
+from .models import Category, Courses, Glossary, Quiz, QuizQuestions
 
 
 def index(request):
@@ -45,6 +48,11 @@ class CreateSubCategoryView(views.View):
         return render(request, "categories/create_subcategory.html", context)
 
 
+class DeleteCategoryView(DeleteView):
+    model = Category
+    success_url = reverse_lazy('categories')
+
+
 class CreateCourseView(views.View):
     def get(self, request):
         form = CreateCourseForm()
@@ -55,13 +63,16 @@ class CreateCourseView(views.View):
         form = CreateCourseForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            # return HttpResponseRedirect(reverse("course_detail",
-            #                                     kwargs={'id': form.cleaned_data.['id']}))
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(reverse("course_detail",
+                                                kwargs={'id': form.instance['id']}))
+
 
         context = {"form": form}
         return render(request, "courses/create_course.html", context)
 
+class DeleteCourseView(DeleteView):
+    model = Courses
+    success_url = reverse_lazy('learning_environments')
 
 class CreateGlossaryView(views.View):
     def get(self, request, course_id):
@@ -80,9 +91,12 @@ class CreateGlossaryView(views.View):
             return HttpResponseRedirect(reverse("glossary_list",
                                                 kwargs={'id': course_id}))
 
-
         context = {"form": form}
         return render(request, "courses/create_glossary.html", context)
+
+class DeleteGlossaryView(DeleteView):
+    model = Glossary
+    success_url = reverse_lazy('learning_environments')
 
 class CreateQuizView(views.View):
     def get(self, request, course_id):
@@ -101,9 +115,12 @@ class CreateQuizView(views.View):
             return HttpResponseRedirect(reverse("quiz_list",
                                                 kwargs={'id': course_id}))
 
-
         context = {"form": form}
         return render(request, "courses/create_quiz.html", context)
+
+class DeleteQuizView(DeleteView):
+    model = Quiz
+    success_url = reverse_lazy("learning_environments")
 
 class CreateQuizQuestionsView(views.View):
     def get(self, request, quiz_id):
@@ -121,6 +138,9 @@ class CreateQuizQuestionsView(views.View):
             return HttpResponseRedirect(reverse("quiz_detail_list",
                                                 kwargs={'id': quiz_id}))
 
-
         context = {"form": form}
         return render(request, "courses/create_quiz_question.html", context)
+
+class DeleteQuizQuestionsView(DeleteView):
+    model = QuizQuestions
+    success_url = reverse_lazy("learning_environments")

@@ -6,7 +6,8 @@ from django.utils.text import slugify
 # Create your models here.
 class Category(models.Model):
     title = models.CharField(max_length=255)
-    parent = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE,
+                               null=True, blank=True)
     status = models.BooleanField(default=True)
     slug = models.SlugField()
     create_at = models.DateTimeField(auto_now_add=True)
@@ -25,7 +26,8 @@ class Courses(models.Model):
         ('True', 'Evet'),
         ('False', 'Hayır'),
     )
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)  # relation with Category table
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL,
+                                 null=True, blank=True)  # relation with Category table
     title = models.CharField(max_length=255)
     keywords = models.CharField(max_length=255,
                                 null=True, blank=True)
@@ -88,10 +90,10 @@ class QuizQuestions(models.Model):
     )
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)  # relation with Quiz
     question = models.TextField(blank=True, )
-    choiceA = models.CharField(max_length=255)
-    choiceB = models.CharField(max_length=255)
-    choiceC = models.CharField(max_length=255)
-    choiceD = models.CharField(max_length=255)
+    choiceA = models.CharField(max_length=255, verbose_name="Choice A")
+    choiceB = models.CharField(max_length=255, verbose_name="Choice B")
+    choiceC = models.CharField(max_length=255, verbose_name="Choice C")
+    choiceD = models.CharField(max_length=255, verbose_name="Choice D")
     rightAnswer = models.CharField(max_length=10, choices=RIGHTANSWER)
 
     def __str__(self):

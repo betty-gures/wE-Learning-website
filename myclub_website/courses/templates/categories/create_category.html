@@ -14,18 +14,35 @@
 
 <section class="section novi-background section-98 section-md-110">
     <div class="container">
-        <h1>Categories </h1>
+        <h1>New Category </h1>
 
         <hr class="divider bg-mantis">
         <BR/>
     <form method="post">
         {%csrf_token%}
+        <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class = "col-4">
+
+
+        <div class="form-group">
         <label>
             <b>
                 {{ form.title.label }}
             </b>
         </label>
         {{ form.title }}
+
+        </div>
+        <div class="col-4">
+
+        </div>
+        </div>
+
+        </div>
+
         </br>
         </br>
         <button class="btn btn-success" type="submit"> Create New Category </button>
