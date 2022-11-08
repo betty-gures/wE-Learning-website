@@ -39,6 +39,8 @@
 - **Backend**:
 
   Python + Django
+  
+  
 - **Frontend**: 
 
   Html + Css
